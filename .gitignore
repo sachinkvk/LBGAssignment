@@ -1,0 +1,16 @@
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+.build/
+Pods/
+Podfile.lock
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+.scannerwork
