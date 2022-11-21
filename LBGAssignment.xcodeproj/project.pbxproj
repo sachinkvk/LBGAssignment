@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B3CA5A3373AD27FDAC3DD2E /* Pods_LBGAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39D548AA0C9E0456AC53C6C2 /* Pods_LBGAssignmentTests.framework */; };
 		5006674F292A487100363584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006674E292A487100363584 /* AppDelegate.swift */; };
 		50066751292A487100363584 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50066750292A487100363584 /* SceneDelegate.swift */; };
 		50066753292A487100363584 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50066752292A487100363584 /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 		50066766292A487300363584 /* LBGAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50066765292A487300363584 /* LBGAssignmentTests.swift */; };
 		50066770292A487300363584 /* LBGAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006676F292A487300363584 /* LBGAssignmentUITests.swift */; };
 		50066772292A487300363584 /* LBGAssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50066771292A487300363584 /* LBGAssignmentUITestsLaunchTests.swift */; };
+		AF733FF0CA68A530AE404E45 /* Pods_LBGAssignment_LBGAssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E61885805779F6EA560D5 /* Pods_LBGAssignment_LBGAssignmentUITests.framework */; };
+		DC63FE4254AA829E0818185C /* Pods_LBGAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE569D0AE613D5A9A15662EB /* Pods_LBGAssignment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		048F42B02C57B7950758692F /* Pods-LBGAssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-LBGAssignmentTests/Pods-LBGAssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
+		353E61885805779F6EA560D5 /* Pods_LBGAssignment_LBGAssignmentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LBGAssignment_LBGAssignmentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39D548AA0C9E0456AC53C6C2 /* Pods_LBGAssignmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LBGAssignmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5006674B292A487100363584 /* LBGAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LBGAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5006674E292A487100363584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50066750292A487100363584 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,12 @@
 		5006676B292A487300363584 /* LBGAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBGAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5006676F292A487300363584 /* LBGAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGAssignmentUITests.swift; sourceTree = "<group>"; };
 		50066771292A487300363584 /* LBGAssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGAssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		506A139F7DEBBA1678194658 /* Pods-LBGAssignment-LBGAssignmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignment-LBGAssignmentUITests.debug.xcconfig"; path = "Target Support Files/Pods-LBGAssignment-LBGAssignmentUITests/Pods-LBGAssignment-LBGAssignmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E43FF33E099A2F74771DFD9 /* Pods-LBGAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignmentTests.release.xcconfig"; path = "Target Support Files/Pods-LBGAssignmentTests/Pods-LBGAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
+		83D81D0F9CC34F2E77BD6660 /* Pods-LBGAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignment.release.xcconfig"; path = "Target Support Files/Pods-LBGAssignment/Pods-LBGAssignment.release.xcconfig"; sourceTree = "<group>"; };
+		D68EC8A729C6D4FE086EF834 /* Pods-LBGAssignment-LBGAssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignment-LBGAssignmentUITests.release.xcconfig"; path = "Target Support Files/Pods-LBGAssignment-LBGAssignmentUITests/Pods-LBGAssignment-LBGAssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DE569D0AE613D5A9A15662EB /* Pods_LBGAssignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LBGAssignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8ADD423823B6FE1A3FE57EF /* Pods-LBGAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignment.debug.xcconfig"; path = "Target Support Files/Pods-LBGAssignment/Pods-LBGAssignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC63FE4254AA829E0818185C /* Pods_LBGAssignment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B3CA5A3373AD27FDAC3DD2E /* Pods_LBGAssignmentTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF733FF0CA68A530AE404E45 /* Pods_LBGAssignment_LBGAssignmentUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 				50066764292A487300363584 /* LBGAssignmentTests */,
 				5006676E292A487300363584 /* LBGAssignmentUITests */,
 				5006674C292A487100363584 /* Products */,
+				DFA23A0B4CD767D20950C607 /* Pods */,
+				F69E2D5B8A6BAB7681E39AE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +144,30 @@
 			path = LBGAssignmentUITests;
 			sourceTree = "<group>";
 		};
+		DFA23A0B4CD767D20950C607 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8ADD423823B6FE1A3FE57EF /* Pods-LBGAssignment.debug.xcconfig */,
+				83D81D0F9CC34F2E77BD6660 /* Pods-LBGAssignment.release.xcconfig */,
+				506A139F7DEBBA1678194658 /* Pods-LBGAssignment-LBGAssignmentUITests.debug.xcconfig */,
+				D68EC8A729C6D4FE086EF834 /* Pods-LBGAssignment-LBGAssignmentUITests.release.xcconfig */,
+				048F42B02C57B7950758692F /* Pods-LBGAssignmentTests.debug.xcconfig */,
+				6E43FF33E099A2F74771DFD9 /* Pods-LBGAssignmentTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F69E2D5B8A6BAB7681E39AE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE569D0AE613D5A9A15662EB /* Pods_LBGAssignment.framework */,
+				353E61885805779F6EA560D5 /* Pods_LBGAssignment_LBGAssignmentUITests.framework */,
+				39D548AA0C9E0456AC53C6C2 /* Pods_LBGAssignmentTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,6 +175,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50066775292A487300363584 /* Build configuration list for PBXNativeTarget "LBGAssignment" */;
 			buildPhases = (
+				A78E88423421F01E67464564 /* [CP] Check Pods Manifest.lock */,
 				50066747292A487100363584 /* Sources */,
 				50066748292A487100363584 /* Frameworks */,
 				50066749292A487100363584 /* Resources */,
@@ -151,6 +193,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50066778292A487300363584 /* Build configuration list for PBXNativeTarget "LBGAssignmentTests" */;
 			buildPhases = (
+				D04719D9E3B0ADB5BC7BA4B2 /* [CP] Check Pods Manifest.lock */,
 				5006675D292A487300363584 /* Sources */,
 				5006675E292A487300363584 /* Frameworks */,
 				5006675F292A487300363584 /* Resources */,
@@ -169,6 +212,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5006677B292A487300363584 /* Build configuration list for PBXNativeTarget "LBGAssignmentUITests" */;
 			buildPhases = (
+				7B394F47BDA2444E098380BB /* [CP] Check Pods Manifest.lock */,
 				50066767292A487300363584 /* Sources */,
 				50066768292A487300363584 /* Frameworks */,
 				50066769292A487300363584 /* Resources */,
@@ -252,6 +296,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7B394F47BDA2444E098380BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LBGAssignment-LBGAssignmentUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A78E88423421F01E67464564 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LBGAssignment-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D04719D9E3B0ADB5BC7BA4B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LBGAssignmentTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		50066747292A487100363584 /* Sources */ = {
@@ -432,6 +545,7 @@
 		};
 		50066776292A487300363584 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8ADD423823B6FE1A3FE57EF /* Pods-LBGAssignment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -460,6 +574,7 @@
 		};
 		50066777292A487300363584 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83D81D0F9CC34F2E77BD6660 /* Pods-LBGAssignment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,6 +603,7 @@
 		};
 		50066779292A487300363584 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 048F42B02C57B7950758692F /* Pods-LBGAssignmentTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +624,7 @@
 		};
 		5006677A292A487300363584 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E43FF33E099A2F74771DFD9 /* Pods-LBGAssignmentTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +645,7 @@
 		};
 		5006677C292A487300363584 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 506A139F7DEBBA1678194658 /* Pods-LBGAssignment-LBGAssignmentUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +664,7 @@
 		};
 		5006677D292A487300363584 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D68EC8A729C6D4FE086EF834 /* Pods-LBGAssignment-LBGAssignmentUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
