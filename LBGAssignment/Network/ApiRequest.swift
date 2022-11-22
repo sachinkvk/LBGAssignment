@@ -7,7 +7,7 @@
 
 import Foundation
 
-let baseURl = "https://fakestoreapi.com"
+private let baseURl = "https://fakestoreapi.com"
 
 protocol ApiResource {
     var path : String { get }

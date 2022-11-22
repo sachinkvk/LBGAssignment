@@ -7,6 +7,7 @@ target 'LBGAssignment' do
 
   # Pods for LBGAssignment
   pod 'SwiftLint'
+  pod 'SDWebImage'
 
   target 'LBGAssignmentTests' do
     inherit! :search_paths

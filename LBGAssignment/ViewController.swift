@@ -8,12 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        Task {
+            let result = await WebService.sharedInstance.fetch(with: RequestTypes.allProducts.request,
+                                                               decodingType: [Products].self)
+            print(result)
+        }
     }
-
-
 }
 
