@@ -17,6 +17,14 @@
 		50066766292A487300363584 /* LBGAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50066765292A487300363584 /* LBGAssignmentTests.swift */; };
 		50066770292A487300363584 /* LBGAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006676F292A487300363584 /* LBGAssignmentUITests.swift */; };
 		50066772292A487300363584 /* LBGAssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50066771292A487300363584 /* LBGAssignmentUITestsLaunchTests.swift */; };
+		50B37403292CC7AB00C9719D /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B37402292CC7AB00C9719D /* WebService.swift */; };
+		50B37405292CC7EC00C9719D /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B37404292CC7EC00C9719D /* ServiceError.swift */; };
+		50FB74BC292C91760027AF64 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74BB292C91760027AF64 /* HttpMethod.swift */; };
+		50FB74BE292C92D20027AF64 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74BD292C92D20027AF64 /* ApiRequest.swift */; };
+		50FB74C0292C97DD0027AF64 /* MockUrlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74BF292C97DD0027AF64 /* MockUrlProtocol.swift */; };
+		50FB74C2292C9E9E0027AF64 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74C1292C9E9E0027AF64 /* ApiClient.swift */; };
+		50FB74C8292CA1150027AF64 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74C6292CA1150027AF64 /* Products.swift */; };
+		50FB74C9292CA1150027AF64 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74C7292CA1150027AF64 /* Rating.swift */; };
 		AF733FF0CA68A530AE404E45 /* Pods_LBGAssignment_LBGAssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E61885805779F6EA560D5 /* Pods_LBGAssignment_LBGAssignmentUITests.framework */; };
 		DC63FE4254AA829E0818185C /* Pods_LBGAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE569D0AE613D5A9A15662EB /* Pods_LBGAssignment.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +64,14 @@
 		5006676F292A487300363584 /* LBGAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGAssignmentUITests.swift; sourceTree = "<group>"; };
 		50066771292A487300363584 /* LBGAssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBGAssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		506A139F7DEBBA1678194658 /* Pods-LBGAssignment-LBGAssignmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignment-LBGAssignmentUITests.debug.xcconfig"; path = "Target Support Files/Pods-LBGAssignment-LBGAssignmentUITests/Pods-LBGAssignment-LBGAssignmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		50B37402292CC7AB00C9719D /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		50B37404292CC7EC00C9719D /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		50FB74BB292C91760027AF64 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		50FB74BD292C92D20027AF64 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		50FB74BF292C97DD0027AF64 /* MockUrlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlProtocol.swift; sourceTree = "<group>"; };
+		50FB74C1292C9E9E0027AF64 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		50FB74C6292CA1150027AF64 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		50FB74C7292CA1150027AF64 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		6E43FF33E099A2F74771DFD9 /* Pods-LBGAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignmentTests.release.xcconfig"; path = "Target Support Files/Pods-LBGAssignmentTests/Pods-LBGAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		83D81D0F9CC34F2E77BD6660 /* Pods-LBGAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignment.release.xcconfig"; path = "Target Support Files/Pods-LBGAssignment/Pods-LBGAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		D68EC8A729C6D4FE086EF834 /* Pods-LBGAssignment-LBGAssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignment-LBGAssignmentUITests.release.xcconfig"; path = "Target Support Files/Pods-LBGAssignment-LBGAssignmentUITests/Pods-LBGAssignment-LBGAssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +134,8 @@
 			children = (
 				5006674E292A487100363584 /* AppDelegate.swift */,
 				50066750292A487100363584 /* SceneDelegate.swift */,
+				50FB74BA292C91610027AF64 /* Network */,
+				50FB74C5292CA1030027AF64 /* Models */,
 				50066752292A487100363584 /* ViewController.swift */,
 				50066754292A487100363584 /* Main.storyboard */,
 				50066757292A487300363584 /* Assets.xcassets */,
@@ -131,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				50066765292A487300363584 /* LBGAssignmentTests.swift */,
+				50FB74BF292C97DD0027AF64 /* MockUrlProtocol.swift */,
 			);
 			path = LBGAssignmentTests;
 			sourceTree = "<group>";
@@ -144,6 +163,27 @@
 			path = LBGAssignmentUITests;
 			sourceTree = "<group>";
 		};
+		50FB74BA292C91610027AF64 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				50FB74BB292C91760027AF64 /* HttpMethod.swift */,
+				50FB74BD292C92D20027AF64 /* ApiRequest.swift */,
+				50FB74C1292C9E9E0027AF64 /* ApiClient.swift */,
+				50B37402292CC7AB00C9719D /* WebService.swift */,
+				50B37404292CC7EC00C9719D /* ServiceError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		50FB74C5292CA1030027AF64 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				50FB74C6292CA1150027AF64 /* Products.swift */,
+				50FB74C7292CA1150027AF64 /* Rating.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DFA23A0B4CD767D20950C607 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +194,6 @@
 				048F42B02C57B7950758692F /* Pods-LBGAssignmentTests.debug.xcconfig */,
 				6E43FF33E099A2F74771DFD9 /* Pods-LBGAssignmentTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -371,9 +410,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50B37405292CC7EC00C9719D /* ServiceError.swift in Sources */,
+				50B37403292CC7AB00C9719D /* WebService.swift in Sources */,
+				50FB74BE292C92D20027AF64 /* ApiRequest.swift in Sources */,
+				50FB74BC292C91760027AF64 /* HttpMethod.swift in Sources */,
 				50066753292A487100363584 /* ViewController.swift in Sources */,
 				5006674F292A487100363584 /* AppDelegate.swift in Sources */,
+				50FB74C9292CA1150027AF64 /* Rating.swift in Sources */,
 				50066751292A487100363584 /* SceneDelegate.swift in Sources */,
+				50FB74C8292CA1150027AF64 /* Products.swift in Sources */,
+				50FB74C2292C9E9E0027AF64 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50066766292A487300363584 /* LBGAssignmentTests.swift in Sources */,
+				50FB74C0292C97DD0027AF64 /* MockUrlProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
