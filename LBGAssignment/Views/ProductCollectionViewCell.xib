@@ -31,6 +31,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Fjallraven - Foldsack No. 1 Backpack" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmZ-wF-4nn">
                                         <rect key="frame" x="0.0" y="0.0" width="262" height="66"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ProductNameLabel" label="ProductNameLabel"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

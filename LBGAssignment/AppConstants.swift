@@ -12,5 +12,4 @@ enum AppConstant {
         case cellIdentifier = "cellIdentifier"
         case productCollectionViewCell = "ProductCollectionViewCell"
     }
-    
 }

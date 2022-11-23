@@ -10,6 +10,7 @@ import Foundation
 struct ProductViewModel {
     let imageName: String
     let title: String
+    let desc: String
     let price: Double
     let rating: Double
 }

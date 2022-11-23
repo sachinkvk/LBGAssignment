@@ -9,17 +9,27 @@ import UIKit
 
 class ProductListViewController: UIViewController {
 
-    @IBOutlet weak private var productListCollectionView: UICollectionView!
+    @IBOutlet weak var productListCollectionView: UICollectionView!
     var viewModel = ProductListViewModel()
     let cellIdentifier = AppConstant.CellIdentifiers.cellIdentifier.rawValue
     let productCollectionViewCell = AppConstant.CellIdentifiers.productCollectionViewCell.rawValue
-
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         productListCollectionView.register(UINib(nibName: productCollectionViewCell,
                                                  bundle: nil), forCellWithReuseIdentifier: cellIdentifier )
         productListCollectionView.dataSource = self
         productListCollectionView.delegate = self
+        self.title = "Products"
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        productListCollectionView.addSubview(refreshControl) // not required when using UITableViewController
+        fetchProducts()
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
         fetchProducts()
     }
     
@@ -29,6 +39,7 @@ class ProductListViewController: UIViewController {
             case .success(let products):
                 self?.viewModel.products = products
                 DispatchQueue.main.async {
+                    self?.refreshControl.endRefreshing()
                     self?.productListCollectionView.reloadData()
                 }
             case .failure(let err):
@@ -53,6 +64,14 @@ extension ProductListViewController: UICollectionViewDataSource {
         
         cell.productViewModel = viewModel.products[indexPath.row]
         return cell
+    }
+}
+
+extension ProductListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let vc = ProductDetailsViewController.instantiate(appStoryboard: .main) as? ProductDetailsViewController else { return }
+        vc.productDetailsViewModel = ProductDetailsViewModel(product: viewModel.products[indexPath.row])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

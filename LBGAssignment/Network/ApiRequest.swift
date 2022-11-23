@@ -10,8 +10,8 @@ import Foundation
 private let baseURl = "https://fakestoreapi.com"
 
 protocol ApiResource {
-    var path : String { get }
-    var method : HttpMethod { get }
+    var path: String { get }
+    var method: HttpMethod { get }
     var request: URLRequest { get }
 }
 
@@ -20,25 +20,21 @@ enum RequestTypes {
 }
 
 extension RequestTypes: ApiResource {
-    
     private var baseUrl: String {
         return baseURl
     }
-    
     var method: HttpMethod {
         switch self {
         case .allProducts:
             return .get
         }
     }
-    
-    var path : String {
+    var path: String {
         switch self {
         case .allProducts:
             return baseUrl + "/products"
         }
     }
-    
     var request: URLRequest {
         let url = URL(string: path)!
         var request = URLRequest(url: url)
