@@ -17,8 +17,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fM6-EB-mQW">
+                                <rect key="frame" x="0.0" y="91" width="390" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPU-9W-pno">
+                                        <rect key="frame" x="324" y="0.0" width="56" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="SortButtonLabel" label="SortButtonLabel"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sort"/>
+                                        <connections>
+                                            <action selector="sortButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HYN-VX-1iU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="349-jy-pEU"/>
+                                    <constraint firstItem="fPU-9W-pno" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fM6-EB-mQW" secondAttribute="leading" constant="20" symbolic="YES" id="8JJ-ad-NmC"/>
+                                    <constraint firstAttribute="bottom" secondItem="fPU-9W-pno" secondAttribute="bottom" id="O70-1M-AHa"/>
+                                    <constraint firstItem="fPU-9W-pno" firstAttribute="top" secondItem="fM6-EB-mQW" secondAttribute="top" id="bPU-nH-JLW"/>
+                                    <constraint firstAttribute="trailing" secondItem="fPU-9W-pno" secondAttribute="trailing" constant="10" id="tdj-wN-Zr8"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5aS-p5-Pwy">
-                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <rect key="frame" x="0.0" y="121" width="390" height="689"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="0Rp-3D-cci">
                                     <size key="itemSize" width="128" height="128"/>
@@ -43,7 +65,10 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5aS-p5-Pwy" secondAttribute="bottom" id="6aR-cl-vPh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5aS-p5-Pwy" secondAttribute="trailing" id="DEj-1Y-ES5"/>
-                            <constraint firstItem="5aS-p5-Pwy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aT9-P0-O1Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fM6-EB-mQW" secondAttribute="trailing" id="FU1-1P-yQJ"/>
+                            <constraint firstItem="5aS-p5-Pwy" firstAttribute="top" secondItem="fM6-EB-mQW" secondAttribute="bottom" id="Jh8-O9-qMo"/>
+                            <constraint firstItem="fM6-EB-mQW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OaY-ED-9Np"/>
+                            <constraint firstItem="fM6-EB-mQW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TfC-yq-eNv"/>
                             <constraint firstItem="5aS-p5-Pwy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nL8-df-0jC"/>
                         </constraints>
                     </view>

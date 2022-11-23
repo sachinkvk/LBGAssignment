@@ -36,7 +36,7 @@ final class ProductDetailsViewModelTests: XCTestCase {
     }
     
     func testFormattedRating() {
-        XCTAssertEqual(sut.product.formattedRating, "4.1/5")
+        XCTAssertEqual(sut.product.formattedRating, "Rating 4.1/5")
     }
     
 }

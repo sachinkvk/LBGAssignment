@@ -20,6 +20,6 @@ struct ProductViewModel {
     }
     
     var formattedRating: String {
-        return rating.description + "/" + "5"
+        return "Rating " + rating.description + "/" + "5"
     }
 }

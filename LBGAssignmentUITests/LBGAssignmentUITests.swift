@@ -44,4 +44,17 @@ final class LBGAssignmentUITests: XCTestCase {
         app.activate()
         XCTAssert(app.navigationBars["Products"].exists)
     }
+    
+    func testSortButtonVisibiltiy() {
+        let app = XCUIApplication()
+        app.activate()
+        XCTAssert(app.staticTexts["Sort"].exists)
+    }
+    
+    func testActionSheetVisibility() {
+        let app = XCUIApplication()
+        app.activate()
+        app.staticTexts["Sort"].tap()
+        XCTAssert(app.sheets["Price"].exists)
+    }
 }
