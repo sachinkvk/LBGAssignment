@@ -7,16 +7,9 @@
 
 import Foundation
 
-struct ProductViewModel {
-    let imageName: String
-    let title: String
-    let desc: String
-    let price: Double
-    let rating: Double
-}
-
 final class ProductListViewModel {
-    var products = [Products]()
+    
+    var products = [ProductViewModel]()
     
     func fetchProducts(_ completion: @escaping (Result<[Products], ServiceError>) -> Void) {
         Task {
@@ -25,4 +18,26 @@ final class ProductListViewModel {
             completion(result)
         }
     }
+    
+    func mapProducts(_ products: [Products]) {
+        for eachProduct in products {
+            self.products.append(ProductViewModel(imageName: eachProduct.image ?? "",
+                                         title: eachProduct.title ?? "",
+                                         desc: eachProduct.description ?? "",
+                                         price: eachProduct.price ?? 0,
+                                         rating: eachProduct.rating?.rate ?? 0,
+                                         category: eachProduct.category ?? ""))
+        }
+    }
+}
+
+extension ProductListViewModel {
+    var screenTitle: String {
+        return "Products"
+    }
+    
+    var pullToRefreshText: String {
+        return "Pull to refresh"
+    }
+    
 }

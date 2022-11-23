@@ -16,14 +16,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var productPrice: UILabel!
     @IBOutlet weak private var productName: UILabel!
     
-    var productViewModel: Products? {
+    var productViewModel: ProductViewModel? {
         didSet {
             guard let product = productViewModel else {  return }
-            guard let url = URL(string: product.image ?? "") else { return }
+            guard let url = URL(string: product.imageName) else { return }
             productImageView.sd_setImage(with: url)
             productName.text = product.title
-            productPrice.text = product.price?.description
-            productRating.text = product.rating?.rate?.description
+            productPrice.text = product.formattedPrice
+            productRating.text = product.formattedRating
         }
     }
     

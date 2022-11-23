@@ -8,9 +8,15 @@
 import Foundation
 
 class ProductDetailsViewModel {
-    let product: Products
+    let product: ProductViewModel
     
-    init(product: Products) {
+    init(product: ProductViewModel) {
         self.product = product
+    }
+}
+
+extension ProductDetailsViewModel {
+    var screenTitle: String {
+        "Product Details"
     }
 }

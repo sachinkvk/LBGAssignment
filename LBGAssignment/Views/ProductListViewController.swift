@@ -9,11 +9,11 @@ import UIKit
 
 class ProductListViewController: UIViewController {
 
-    @IBOutlet weak var productListCollectionView: UICollectionView!
+    @IBOutlet weak private var productListCollectionView: UICollectionView!
     var viewModel = ProductListViewModel()
-    let cellIdentifier = AppConstant.CellIdentifiers.cellIdentifier.rawValue
-    let productCollectionViewCell = AppConstant.CellIdentifiers.productCollectionViewCell.rawValue
-    let refreshControl = UIRefreshControl()
+    private let cellIdentifier = AppConstant.CellIdentifiers.cellIdentifier.rawValue
+    private let productCollectionViewCell = AppConstant.CellIdentifiers.productCollectionViewCell.rawValue
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +21,14 @@ class ProductListViewController: UIViewController {
                                                  bundle: nil), forCellWithReuseIdentifier: cellIdentifier )
         productListCollectionView.dataSource = self
         productListCollectionView.delegate = self
-        self.title = "Products"
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.title = viewModel.screenTitle
+        refreshControl.attributedTitle = NSAttributedString(string: viewModel.pullToRefreshText)
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-        productListCollectionView.addSubview(refreshControl) // not required when using UITableViewController
+        productListCollectionView.addSubview(refreshControl)
         fetchProducts()
     }
     
     @objc func refresh(_ sender: AnyObject) {
-       // Code to refresh table view
         fetchProducts()
     }
     
@@ -37,7 +36,8 @@ class ProductListViewController: UIViewController {
         viewModel.fetchProducts { [weak self] result in
             switch result {
             case .success(let products):
-                self?.viewModel.products = products
+//                self?.viewModel.products = products
+                self?.viewModel.mapProducts(products)
                 DispatchQueue.main.async {
                     self?.refreshControl.endRefreshing()
                     self?.productListCollectionView.reloadData()

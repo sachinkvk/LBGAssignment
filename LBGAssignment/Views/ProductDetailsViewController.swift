@@ -9,15 +9,16 @@ import UIKit
 import SDWebImage
 
 class ProductDetailsViewController: UIViewController {
-    @IBOutlet weak var productTitle: UILabel!
-    @IBOutlet weak var productImageView: UIImageView!
-    @IBOutlet weak var productCategory: UILabel!
+    @IBOutlet weak private var productTitle: UILabel!
+    @IBOutlet weak private var productImageView: UIImageView!
+    @IBOutlet weak private var productCategory: UILabel!
+    
     var productDetailsViewModel: ProductDetailsViewModel?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Product Details"
-        productImageView.sd_setImage(with: URL(string: productDetailsViewModel?.product.image ?? ""))
+        self.title = productDetailsViewModel?.screenTitle
+        productImageView.sd_setImage(with: URL(string: productDetailsViewModel?.product.imageName ?? ""))
         productTitle.text = productDetailsViewModel?.product.title
         productCategory.text = productDetailsViewModel?.product.category
     }

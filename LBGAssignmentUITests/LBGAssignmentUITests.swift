@@ -36,6 +36,7 @@ final class LBGAssignmentUITests: XCTestCase {
         app.collectionViews.children(matching: .cell).element(boundBy: 1).staticTexts["ProductNameLabel"].tap()
         let productCategory = app.scrollViews.otherElements.staticTexts["ProductCategoryLabel"]
         XCTAssertTrue(productCategory.exists, "product detail screen visible")
+        XCTAssert(app.navigationBars["Product Details"].exists)
     }
     
     func testProductListScreenTitle() {
