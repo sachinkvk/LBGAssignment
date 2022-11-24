@@ -14,7 +14,6 @@ class ProductListViewController: UIViewController {
 
     private let cellIdentifier = AppConstant.CellIdentifiers.productCellIdentifier
     private let productCollectionViewCell = AppConstant.CellIdentifiers.productCollectionViewCell
-    private let refreshControl = UIRefreshControl()
     var actions: [(String, UIAlertAction.Style)] = []
 
     var viewModel = ProductListViewModel()
@@ -42,8 +41,6 @@ class ProductListViewController: UIViewController {
         productListCollectionView.delegate = self
         loadActionSheets()
         self.title = viewModel.screenTitle
-        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-        productListCollectionView.addSubview(refreshControl)
         shouldShowCollectionView = true
         fetchProducts()
     }
@@ -100,7 +97,6 @@ class ProductListViewController: UIViewController {
     func refreshUI() {
         DispatchQueue.main.async {
             self.view.hideLoader()
-            self.refreshControl.endRefreshing()
         }
         reloadProducts()
     }
