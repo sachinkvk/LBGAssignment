@@ -16,8 +16,9 @@ final class ProductListViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         urlSession = URLSession.init(configuration: MockResponse.getSessionConfiguration())
-        sut = ProductListViewModel(urlSession: urlSession)
+        sut = ProductListViewModel()
         products = MockProduct.getProducts()
+        WebService.urlSession = urlSession
     }
 
     override func tearDownWithError() throws {

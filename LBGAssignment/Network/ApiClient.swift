@@ -8,14 +8,13 @@
 import Foundation
 
 protocol APIClient {
-    func fetch<T: Codable>(with request: URLRequest, decodingType: T.Type,
-                           session: URLSession) async -> Result<T, ServiceError>
+    func fetch<T: Codable>(with request: URLRequest, decodingType: T.Type) async -> Result<T, ServiceError>
 }
 
 extension APIClient {
-    func fetch<T: Codable>(with request: URLRequest, decodingType: T.Type,
-                           session: URLSession = URLSession(configuration: .default)) async -> Result<T, ServiceError> {
+    func fetch<T: Codable>(with request: URLRequest, decodingType: T.Type) async -> Result<T, ServiceError> {
         do {
+            let session = WebService.urlSession
             let (data, response) = try await session.data(for: request, delegate: nil)
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)

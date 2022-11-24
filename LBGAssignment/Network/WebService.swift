@@ -9,5 +9,8 @@ import Foundation
 
 class WebService: APIClient {
     static let sharedInstance = WebService()
+
     private init() { }
+
+    static var urlSession = URLSession.init(configuration: .default)
 }

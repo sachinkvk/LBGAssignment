@@ -28,11 +28,6 @@ final class ProductListViewModel: SortProductProtocol {
     var products = [Products]()
     var productsCopy = [Products]()
     var isSortingApplied = false
-    var urlSession: URLSession
-
-    init(urlSession: URLSession = URLSession.init(configuration: .default)) {
-        self.urlSession = urlSession
-    }
 
     var productList: [Products] {
         return isSortingApplied ? productsCopy : products
@@ -52,8 +47,7 @@ extension ProductListViewModel: ProductListProtocol {
     func fetchProducts(_ completion: @escaping (Result<[Products], ServiceError>) -> Void) {
         Task {
             let result = await WebService.sharedInstance.fetch(with: RequestTypes.allProducts.request,
-                                                               decodingType: [Products].self,
-                                                               session: urlSession)
+                                                               decodingType: [Products].self)
             completion(result)
         }
     }
