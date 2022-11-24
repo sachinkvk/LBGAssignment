@@ -33,16 +33,8 @@ class ProductCollectionViewCellTests: XCTestCase {
         subject.setValue(productName, forKey: "productName")
         subject.setValue(productImageView, forKey: "productImageView")
         subject.setValue(containerView, forKey: "containerView")
-        product = ProductViewModel(imageName: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-                                       title: "Mens Casual Premium Slim Fit T-Shirts ",
-                                       desc: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-                                       price: 134,
-                                       rating: 4.1,
-                                       category: "men's clothing")
+        product = MockProduct.getProduct()
         subject.productViewModel = product
-        
-        products = [Products(id: 1, title: "Title", price: 23, description: "description", category: "category",
-                             image: "image", rating: Rating(rate: 12, count: 12))]
     }
 
     override func tearDown() {
@@ -72,16 +64,13 @@ class ProductCollectionViewCellTests: XCTestCase {
         vc.loadView()
         XCTAssertNotNil(vc.viewDidLoad())
         
-        let enumString = ServiceError.decode
-        XCTAssertNotNil(enumString.message)
-        
         XCTAssertNotNil(vc.productListCollectionView, "Collection view is present")
         vc.viewModel = ProductListViewModel()
         vc.viewModel.products = [product]
         
-        vc.actions.append((SortingList.HighToLow.rawValue, UIAlertAction.Style.default, .HighToLow))
-        vc.actions.append((SortingList.lowToHigh.rawValue, UIAlertAction.Style.default, .lowToHigh))
-        vc.actions.append((SortingList.Cancel.rawValue, UIAlertAction.Style.cancel, .Cancel))
+        vc.actions.append((SortingTypes.HighToLow.rawValue, UIAlertAction.Style.default, .HighToLow))
+        vc.actions.append((SortingTypes.lowToHigh.rawValue, UIAlertAction.Style.default, .lowToHigh))
+        vc.actions.append((SortingTypes.Cancel.rawValue, UIAlertAction.Style.cancel, .Cancel))
         XCTAssertNotNil(vc.loadActionSheets())
         XCTAssertNotNil(vc.handleSheetAction(type: .HighToLow))
         XCTAssertNotNil(vc.handleSheetAction(type: .lowToHigh))

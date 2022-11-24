@@ -15,16 +15,14 @@ final class ProductListViewModelTests: XCTestCase {
     var urlSession: URLSession = URLSession.init(configuration: .default)
     
     override func setUpWithError() throws {
-        sut = ProductListViewModel()
-        
         urlSession = URLSession.init(configuration: MockResponse.getSessionConfiguration())
-        products = [Products(id: 1, title: "Title", price: 23, description: "description", category: "category",
-                             image: "image", rating: Rating(rate: 12, count: 12))]
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = ProductListViewModel(urlSession: urlSession)
+        products = MockProduct.getProducts()
     }
-
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        products = []
     }
 
     func testScreenTitle() throws {
@@ -46,12 +44,12 @@ final class ProductListViewModelTests: XCTestCase {
     }
     
     func testProductListApiSuccess() {
-        let mockedData = AppConstant.readJSONFromFile(fileName: "ProductList") as? [[String: Any]] ?? [[:]]
+        let mockedData = AppConstant.readJSONFrom(fileName: "ProductList") as? [[String: Any]] ?? [[:]]
         MockResponse.setMock(response: mockedData,
                                      requestUrl: MockResponse.getMockUrl(),
                                      statusCode: 200)
         let expectation = self.expectation(description: "Success")
-        fetchProducts(session: urlSession) {  result in
+        sut.fetchProducts {  result in
                 switch result {
                 case .success(let response):
                     XCTAssertEqual(response.count, 20)
@@ -68,7 +66,7 @@ final class ProductListViewModelTests: XCTestCase {
                                      requestUrl: MockResponse.getMockUrl(),
                                      statusCode: 401)
         let expectation = self.expectation(description: "Success")
-        fetchProducts(session: urlSession) {  result in
+        sut.fetchProducts {  result in
                 switch result {
                 case .success(let response):
                     XCTAssertEqual(response.count, 20)
@@ -96,6 +94,11 @@ final class ProductListViewModelTests: XCTestCase {
         XCTAssertNotNil(sut.sortBy(order: .lowToHigh))
         XCTAssertNotNil(sut.sortBy(order: .HighToLow))
         XCTAssertNotNil(sut.sortBy(order: .Cancel))
+    }
+    
+    func testServieError() {
+        let enumString = ServiceError.decode
+        XCTAssertNotNil(enumString.message)
     }
     
 }

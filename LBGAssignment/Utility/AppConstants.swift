@@ -7,13 +7,17 @@
 
 import Foundation
 
-enum AppConstant {
-    enum CellIdentifiers: String {
-        case cellIdentifier = "cellIdentifier"
-        case productCollectionViewCell = "ProductCollectionViewCell"
+enum ServiceUrl {
+    static let baseURL = "https://fakestoreapi.com"
+}
+
+struct AppConstant {
+    struct CellIdentifiers {
+        static let productCellIdentifier = "productCellIdentifier"
+        static let productCollectionViewCell = "ProductCollectionViewCell"
     }
     
-    static func readJSONFromFile(fileName: String) -> Any? {
+    static func readJSONFrom(fileName: String) -> Any? {
         var json: Any?
         if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
             do {

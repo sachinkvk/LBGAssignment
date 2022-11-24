@@ -32,6 +32,8 @@
 		50E777E0292DE160002C7F2A /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E777DF292DE15F002C7F2A /* MockResponse.swift */; };
 		50E777E2292DEB3F002C7F2A /* ProductDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E777E1292DEB3F002C7F2A /* ProductDetailsViewModelTests.swift */; };
 		50E777E4292DECCD002C7F2A /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E777E3292DECCD002C7F2A /* ProductViewModel.swift */; };
+		50F463E6292F92B80059C6F1 /* MockProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F463E5292F92B80059C6F1 /* MockProduct.swift */; };
+		50F463E8292F94040059C6F1 /* ViewControllersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F463E7292F94040059C6F1 /* ViewControllersTests.swift */; };
 		50FB74BC292C91760027AF64 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74BB292C91760027AF64 /* HttpMethod.swift */; };
 		50FB74BE292C92D20027AF64 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74BD292C92D20027AF64 /* ApiRequest.swift */; };
 		50FB74C2292C9E9E0027AF64 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74C1292C9E9E0027AF64 /* ApiClient.swift */; };
@@ -90,6 +92,8 @@
 		50E777DF292DE15F002C7F2A /* MockResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		50E777E1292DEB3F002C7F2A /* ProductDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		50E777E3292DECCD002C7F2A /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		50F463E5292F92B80059C6F1 /* MockProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProduct.swift; sourceTree = "<group>"; };
+		50F463E7292F94040059C6F1 /* ViewControllersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersTests.swift; sourceTree = "<group>"; };
 		50FB74BB292C91760027AF64 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		50FB74BD292C92D20027AF64 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		50FB74BF292C97DD0027AF64 /* MockUrlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlProtocol.swift; sourceTree = "<group>"; };
@@ -173,11 +177,13 @@
 		50066764292A487300363584 /* LBGAssignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				50F463E5292F92B80059C6F1 /* MockProduct.swift */,
 				50E777DF292DE15F002C7F2A /* MockResponse.swift */,
 				50FB74BF292C97DD0027AF64 /* MockUrlProtocol.swift */,
 				50E777DA292DDC8A002C7F2A /* ProductListViewModelTests.swift */,
 				50E777E1292DEB3F002C7F2A /* ProductDetailsViewModelTests.swift */,
 				50C9EDAD292F3A8F0022BF20 /* ProductCollectionViewCellTests.swift */,
+				50F463E7292F94040059C6F1 /* ViewControllersTests.swift */,
 			);
 			path = LBGAssignmentTests;
 			sourceTree = "<group>";
@@ -570,6 +576,8 @@
 				50E777E2292DEB3F002C7F2A /* ProductDetailsViewModelTests.swift in Sources */,
 				50C9EDAE292F3A8F0022BF20 /* ProductCollectionViewCellTests.swift in Sources */,
 				50C9EDAC292E5E4A0022BF20 /* MockUrlProtocol.swift in Sources */,
+				50F463E6292F92B80059C6F1 /* MockProduct.swift in Sources */,
+				50F463E8292F94040059C6F1 /* ViewControllersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

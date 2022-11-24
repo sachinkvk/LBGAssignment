@@ -7,8 +7,6 @@
 
 import Foundation
 
-private let baseURl = "https://fakestoreapi.com"
-
 protocol ApiResource {
     var path: String { get }
     var method: HttpMethod { get }
@@ -21,7 +19,7 @@ enum RequestTypes {
 
 extension RequestTypes: ApiResource {
     private var baseUrl: String {
-        return baseURl
+        return ServiceUrl.baseURL
     }
     
     var method: HttpMethod {

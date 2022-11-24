@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SortingList: String {
+enum SortingTypes: String {
     case lowToHigh = "High To Low"
     case HighToLow = "Low to High"
     case Cancel = "Cancel"
@@ -20,20 +20,44 @@ protocol SortProductProtocol {
     var isSortingApplied: Bool { get }
 }
 
+protocol ProductListProtocol {
+    func fetchProducts(_ completion: @escaping (Result<[Products], ServiceError>) -> Void)
+    func translateProducts(_ products: [Products])
+}
+
 final class ProductListViewModel: SortProductProtocol {
     
     var products = [ProductViewModel]()
     var productsCopy = [ProductViewModel]()
     var isSortingApplied = false
+    var urlSession: URLSession
+    
+    init(urlSession: URLSession = URLSession.init(configuration: .default)) {
+        self.urlSession = urlSession
+    }
     
     var productList: [ProductViewModel] {
         return isSortingApplied ? productsCopy : products
     }
     
+    func sortBy(order: SortingTypes) -> [ProductViewModel] {
+        switch order {
+        case .HighToLow:
+            return productsCopy.sorted(by: { $0.price < $1.price })
+        case .lowToHigh:
+            return productsCopy.sorted(by: { $0.price > $1.price })
+        default:
+            return []
+        }
+    }
+}
+
+extension ProductListViewModel: ProductListProtocol {
     func fetchProducts(_ completion: @escaping (Result<[Products], ServiceError>) -> Void) {
         Task {
             let result = await WebService.sharedInstance.fetch(with: RequestTypes.allProducts.request,
-                                                               decodingType: [Products].self)
+                                                               decodingType: [Products].self,
+                                                                session: urlSession)
             completion(result)
         }
     }
@@ -46,17 +70,6 @@ final class ProductListViewModel: SortProductProtocol {
                                          price: eachProduct.price ?? 0,
                                          rating: eachProduct.rating?.rate ?? 0,
                                          category: eachProduct.category ?? ""))
-        }
-    }
-    
-    func sortBy(order: SortingList) -> [ProductViewModel] {
-        switch order {
-        case .HighToLow:
-            return productsCopy.sorted(by: { $0.price < $1.price })
-        case .lowToHigh:
-            return productsCopy.sorted(by: { $0.price > $1.price })
-        default:
-            return []
         }
     }
 }

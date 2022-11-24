@@ -11,10 +11,10 @@ class ProductListViewController: UIViewController {
 
     @IBOutlet weak var productListCollectionView: UICollectionView!
     var viewModel = ProductListViewModel()
-    let cellIdentifier = AppConstant.CellIdentifiers.cellIdentifier.rawValue
-    private let productCollectionViewCell = AppConstant.CellIdentifiers.productCollectionViewCell.rawValue
+    let cellIdentifier = AppConstant.CellIdentifiers.productCellIdentifier
+    private let productCollectionViewCell = AppConstant.CellIdentifiers.productCollectionViewCell
     private let refreshControl = UIRefreshControl()
-    var actions: [(String, UIAlertAction.Style, SortingList)] = []
+    var actions: [(String, UIAlertAction.Style, SortingTypes)] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +36,9 @@ class ProductListViewController: UIViewController {
     }
     
     func loadActionSheets() {
-        actions.append((SortingList.HighToLow.rawValue, UIAlertAction.Style.default, .HighToLow))
-        actions.append((SortingList.lowToHigh.rawValue, UIAlertAction.Style.default, .lowToHigh))
-        actions.append((SortingList.Cancel.rawValue, UIAlertAction.Style.cancel, .Cancel))
+        actions.append((SortingTypes.HighToLow.rawValue, UIAlertAction.Style.default, .HighToLow))
+        actions.append((SortingTypes.lowToHigh.rawValue, UIAlertAction.Style.default, .lowToHigh))
+        actions.append((SortingTypes.Cancel.rawValue, UIAlertAction.Style.cancel, .Cancel))
     }
     
     @IBAction func sortButtonTapped(_ sender: Any) {
@@ -47,7 +47,7 @@ class ProductListViewController: UIViewController {
         }
     }
     
-    func handleSheetAction(type: SortingList) {
+    func handleSheetAction(type: SortingTypes) {
         switch type {
         case .HighToLow:
             viewModel.isSortingApplied = true

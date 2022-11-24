@@ -29,13 +29,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
         containerView.layer.cornerRadius = 1
         containerView.layer.borderColor = UIColor.brown.cgColor
         containerView.layer.borderWidth = 0.5
     }
-
 }
 
 
