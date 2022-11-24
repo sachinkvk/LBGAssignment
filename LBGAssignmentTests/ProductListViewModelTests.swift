@@ -29,18 +29,8 @@ final class ProductListViewModelTests: XCTestCase {
         XCTAssertEqual(sut.screenTitle, "Products")
     }
     
-    func fetchProducts(session: URLSession = URLSession(configuration: .default),
-                       _ completion: @escaping (Result<[Products], ServiceError>) -> Void) {
-        Task {
-            let result = await WebService.sharedInstance.fetch(with: RequestTypes.allProducts.request,
-                                                               decodingType: [Products].self,
-                                                               session: urlSession)
-            completion(result)
-        }
-    }
-    
     func testProductListApiSuccess() {
-        let mockedData = AppConstant.readJSONFrom(fileName: "ProductList") as? [[String: Any]] ?? [[:]]
+        let mockedData = Utility.readJSONFrom(fileName: "ProductList") as? [[String: Any]] ?? [[:]]
         MockResponse.setMock(response: mockedData,
                                      requestUrl: MockResponse.getMockUrl(),
                                      statusCode: 200)
@@ -60,26 +50,38 @@ final class ProductListViewModelTests: XCTestCase {
     func testProductListApiFailure() {
         MockResponse.setMock(response: [[:]],
                                      requestUrl: MockResponse.getMockUrl(),
-                                     statusCode: 401)
-        let expectation = self.expectation(description: "Success")
+                                     statusCode: 400)
+        let expectation = self.expectation(description: "Failure")
         sut.fetchProducts {  result in
                 switch result {
                 case .success(let response):
                     XCTAssertEqual(response.count, 20)
                 case .failure(let error):
-                    XCTAssertEqual(error, ServiceError.unexpectedStatusCode)
+                    XCTAssertEqual(error, ServiceError.badStatusCode)
                 }
                 expectation.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func testTranslateProducts() {
-        XCTAssertNotNil(sut.translateProducts(products))
+    func testProductListApiUnauthorized() {
+        MockResponse.setMock(response: [[:]],
+                                     requestUrl: MockResponse.getMockUrl(),
+                                     statusCode: 401)
+        let expectation = self.expectation(description: "Failure")
+        sut.fetchProducts {  result in
+                switch result {
+                case .success(let response):
+                    XCTAssertEqual(response.count, 20)
+                case .failure(let error):
+                    XCTAssertEqual(error, ServiceError.unauthorized)
+                }
+                expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
     }
     
     func testProductList() {
-        sut.translateProducts(products)
         sut.productsCopy = sut.products
         XCTAssertNotNil(sut.products)
         sut.isSortingApplied = true

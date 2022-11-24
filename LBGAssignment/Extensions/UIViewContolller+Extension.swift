@@ -10,7 +10,6 @@ import UIKit
 
 enum AppStoryboard: String {
    case main = "Main"
-   case profile = "Profile"
 }
 
 extension UIViewController {

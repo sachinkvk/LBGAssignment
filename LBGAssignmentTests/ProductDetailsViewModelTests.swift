@@ -24,13 +24,13 @@ final class ProductDetailsViewModelTests: XCTestCase {
     }
     
     func testFormattedPrice() {
-        XCTAssertNotEqual(sut.product.formattedPrice, "$ 134")
-        XCTAssertNotEqual(sut.product.formattedPrice, "134")
-        XCTAssertEqual(sut.product.formattedPrice, "$ 134.0")
+        XCTAssertNotEqual(sut.product.formattedPrice, "$ 23")
+        XCTAssertNotEqual(sut.product.formattedPrice, "23")
+        XCTAssertEqual(sut.product.formattedPrice, "$23.0")
     }
     
     func testFormattedRating() {
-        XCTAssertEqual(sut.product.formattedRating, "Rating 4.1/5")
+        XCTAssertEqual(sut.product.formattedRating, "Rating 12.0/5")
     }
     
 }

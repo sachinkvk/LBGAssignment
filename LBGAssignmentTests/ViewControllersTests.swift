@@ -9,7 +9,6 @@ import XCTest
 @testable import LBGAssignment
 
 final class ViewControllersTests: XCTestCase {
-    var product: ProductViewModel!
     var products: [Products] = []
     var viewController: ProductListViewController?
     
@@ -21,7 +20,6 @@ final class ViewControllersTests: XCTestCase {
 
     override func tearDownWithError() throws {
         viewController = nil
-        product = nil
     }
     
     func testProductListViewControllerIfLoaded() {
@@ -30,14 +28,14 @@ final class ViewControllersTests: XCTestCase {
     
     func testActionSheetTaps() {
         XCTAssertNotNil(viewController?.loadActionSheets())
-        XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortingTypes.HighToLow.rawValue))
-        XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortingTypes.lowToHigh.rawValue))
+        XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortOptions.HighToLow.rawValue))
+        XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortOptions.lowToHigh.rawValue))
         XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: "Cancel"))
     }
     
     func testActionSheetSource() {
-        viewController?.actions.append((SortingTypes.HighToLow.rawValue, UIAlertAction.Style.default))
-        viewController?.actions.append((SortingTypes.lowToHigh.rawValue, UIAlertAction.Style.default))
+        viewController?.actions.append((SortOptions.HighToLow.rawValue, UIAlertAction.Style.default))
+        viewController?.actions.append((SortOptions.lowToHigh.rawValue, UIAlertAction.Style.default))
         viewController?.actions.append(("Cancel", UIAlertAction.Style.cancel))
     }
     
@@ -50,8 +48,8 @@ final class ViewControllersTests: XCTestCase {
     }
     
     func testActionSheets() {
-        viewController?.actions.append((SortingTypes.HighToLow.rawValue, UIAlertAction.Style.default))
-        viewController?.actions.append((SortingTypes.lowToHigh.rawValue, UIAlertAction.Style.default))
+        viewController?.actions.append((SortOptions.HighToLow.rawValue, UIAlertAction.Style.default))
+        viewController?.actions.append((SortOptions.lowToHigh.rawValue, UIAlertAction.Style.default))
         viewController?.actions.append(("Cancel", UIAlertAction.Style.cancel))
         guard let viewController = viewController else { return }
         XCTAssertNotNil(ActionSheet.showActionsheet(viewController: viewController.self,

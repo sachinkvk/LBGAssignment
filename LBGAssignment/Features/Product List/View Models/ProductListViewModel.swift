@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SortingTypes: String {
+enum SortOptions: String {
     case lowToHigh = "High To Low"
     case HighToLow = "Low to High"
 }
@@ -21,13 +21,12 @@ protocol SortProductProtocol {
 
 protocol ProductListProtocol {
     func fetchProducts(_ completion: @escaping (Result<[Products], ServiceError>) -> Void)
-    func translateProducts(_ products: [Products])
 }
 
 final class ProductListViewModel: SortProductProtocol {
     
-    var products = [ProductViewModel]()
-    var productsCopy = [ProductViewModel]()
+    var products = [Products]()
+    var productsCopy = [Products]()
     var isSortingApplied = false
     var urlSession: URLSession
     
@@ -35,11 +34,11 @@ final class ProductListViewModel: SortProductProtocol {
         self.urlSession = urlSession
     }
     
-    var productList: [ProductViewModel] {
+    var productList: [Products] {
         return isSortingApplied ? productsCopy : products
     }
     
-    func sortBy(order: SortingTypes) -> [ProductViewModel] {
+    func sortBy(order: SortOptions) -> [Products] {
         switch order {
         case .HighToLow:
             return productsCopy.sorted(by: { $0.price < $1.price })
@@ -56,17 +55,6 @@ extension ProductListViewModel: ProductListProtocol {
                                                                decodingType: [Products].self,
                                                                 session: urlSession)
             completion(result)
-        }
-    }
-    
-    func translateProducts(_ products: [Products]) {
-        for eachProduct in products {
-            self.products.append(ProductViewModel(imageName: eachProduct.image ?? "",
-                                         title: eachProduct.title ?? "",
-                                         desc: eachProduct.description ?? "",
-                                         price: eachProduct.price ?? 0,
-                                         rating: eachProduct.rating?.rate ?? 0,
-                                         category: eachProduct.category ?? ""))
         }
     }
 }

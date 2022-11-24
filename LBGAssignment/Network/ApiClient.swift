@@ -25,6 +25,10 @@ extension APIClient {
                     return .failure(.decode)
                 }
                 return .success(decodedResponse)
+            case 400:
+                return .failure(.badStatusCode)
+            case 401:
+                return .failure(.unauthorized)
             default:
                 return .failure(.unexpectedStatusCode)
             }

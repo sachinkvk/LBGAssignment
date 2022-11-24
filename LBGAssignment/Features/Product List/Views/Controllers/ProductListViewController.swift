@@ -9,15 +9,17 @@ import UIKit
 
 class ProductListViewController: UIViewController {
     
-    @IBOutlet weak var retryView: UIView!
+    @IBOutlet weak private var retryView: UIView!
     @IBOutlet weak var productListCollectionView: UICollectionView!
-    var viewModel = ProductListViewModel()
+    
     private let cellIdentifier = AppConstant.CellIdentifiers.productCellIdentifier
     private let productCollectionViewCell = AppConstant.CellIdentifiers.productCollectionViewCell
     private let refreshControl = UIRefreshControl()
     var actions: [(String, UIAlertAction.Style)] = []
     
-    var shouldShowCollectionView: Bool = true {
+    var viewModel = ProductListViewModel()
+
+    private var shouldShowCollectionView: Bool = true {
         didSet {
             productListCollectionView.isHidden = !shouldShowCollectionView
             if shouldShowCollectionView {
@@ -51,8 +53,8 @@ class ProductListViewController: UIViewController {
     }
     
     func loadActionSheets() {
-        actions.append((SortingTypes.HighToLow.rawValue, UIAlertAction.Style.default))
-        actions.append((SortingTypes.lowToHigh.rawValue, UIAlertAction.Style.default))
+        actions.append((SortOptions.HighToLow.rawValue, UIAlertAction.Style.default))
+        actions.append((SortOptions.lowToHigh.rawValue, UIAlertAction.Style.default))
         actions.append(("Cancel", UIAlertAction.Style.cancel))
     }
     
@@ -63,7 +65,7 @@ class ProductListViewController: UIViewController {
     }
     
     func handleSheetAction(sortOrder: String) {
-        guard let order = SortingTypes(rawValue: sortOrder) else { return }
+        guard let order = SortOptions(rawValue: sortOrder) else { return }
         
         viewModel.isSortingApplied = true
         viewModel.productsCopy = self.viewModel.sortBy(order: order)
@@ -85,7 +87,7 @@ class ProductListViewController: UIViewController {
         viewModel.fetchProducts { [weak self] result in
             switch result {
             case .success(let products):
-                self?.viewModel.translateProducts(products)
+                self?.viewModel.products = products
                 self?.viewModel.productsCopy = self?.viewModel.products ?? []
                 self?.refreshUI()
             case .failure(let err):
