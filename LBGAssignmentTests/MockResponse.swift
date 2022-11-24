@@ -9,11 +9,11 @@ import XCTest
 
 class MockResponse {
     static let mockURL = "https://fakestoreapi.com/products"
-    
+
     static func getMockUrl() -> URL? {
         return URL(string: mockURL)
     }
-    
+
     static func serialiseJsonData(mockedData: [[String: Any]]) -> Data {
         var jsonData = Data()
         do {
@@ -22,7 +22,7 @@ class MockResponse {
         }
         return jsonData
     }
-    
+
     static func setMock(response: [[String: Any]], requestUrl: URL?, statusCode: Int) {
         let serialisedData = serialiseJsonData(mockedData: response)
         MockURLProtocol.requestHandler = { request in
@@ -35,11 +35,10 @@ class MockResponse {
             return (HTTPURLResponse(), Data())
         }
     }
-    
+
     static func getSessionConfiguration() -> URLSessionConfiguration {
         let sessionConfiguration = URLSessionConfiguration.default
         sessionConfiguration.protocolClasses = [MockURLProtocol.self]
         return sessionConfiguration
     }
-    
 }

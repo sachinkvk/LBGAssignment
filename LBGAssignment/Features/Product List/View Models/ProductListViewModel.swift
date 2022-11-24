@@ -9,13 +9,13 @@ import Foundation
 
 enum SortOptions: String {
     case lowToHigh = "High To Low"
-    case HighToLow = "Low to High"
+    case highToLow = "Low to High"
 }
 
 protocol SortProductProtocol {
-    associatedtype T
+    associatedtype SortType
     associatedtype Items
-    func sortBy(order: T) -> [Items]
+    func sortBy(order: SortType) -> [Items]
     var isSortingApplied: Bool { get }
 }
 
@@ -24,23 +24,23 @@ protocol ProductListProtocol {
 }
 
 final class ProductListViewModel: SortProductProtocol {
-    
+
     var products = [Products]()
     var productsCopy = [Products]()
     var isSortingApplied = false
     var urlSession: URLSession
-    
+
     init(urlSession: URLSession = URLSession.init(configuration: .default)) {
         self.urlSession = urlSession
     }
-    
+
     var productList: [Products] {
         return isSortingApplied ? productsCopy : products
     }
-    
+
     func sortBy(order: SortOptions) -> [Products] {
         switch order {
-        case .HighToLow:
+        case .highToLow:
             return productsCopy.sorted(by: { $0.price < $1.price })
         case .lowToHigh:
             return productsCopy.sorted(by: { $0.price > $1.price })
@@ -53,7 +53,7 @@ extension ProductListViewModel: ProductListProtocol {
         Task {
             let result = await WebService.sharedInstance.fetch(with: RequestTypes.allProducts.request,
                                                                decodingType: [Products].self,
-                                                                session: urlSession)
+                                                               session: urlSession)
             completion(result)
         }
     }
@@ -63,5 +63,4 @@ extension ProductListViewModel {
     var screenTitle: String {
         return "Products"
     }
-    
 }

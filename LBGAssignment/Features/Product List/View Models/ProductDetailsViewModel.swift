@@ -9,7 +9,7 @@ import Foundation
 
 class ProductDetailsViewModel {
     let product: Products
-    
+
     init(product: Products) {
         self.product = product
     }

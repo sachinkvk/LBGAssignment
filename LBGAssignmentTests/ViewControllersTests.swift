@@ -11,7 +11,7 @@ import XCTest
 final class ViewControllersTests: XCTestCase {
     var products: [Products] = []
     var viewController: ProductListViewController?
-    
+
     override func setUpWithError() throws {
         products = MockProduct.getProducts()
         viewController = ProductListViewController.instantiate(appStoryboard: .main) as? ProductListViewController
@@ -21,46 +21,39 @@ final class ViewControllersTests: XCTestCase {
     override func tearDownWithError() throws {
         viewController = nil
     }
-    
+
     func testProductListViewControllerIfLoaded() {
         XCTAssertNotNil(viewController?.viewDidLoad())
     }
-    
+
     func testActionSheetTaps() {
         XCTAssertNotNil(viewController?.loadActionSheets())
-        XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortOptions.HighToLow.rawValue))
+        XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortOptions.highToLow.rawValue))
         XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortOptions.lowToHigh.rawValue))
         XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: "Cancel"))
     }
-    
-    func testActionSheetSource() {
-        viewController?.actions.append((SortOptions.HighToLow.rawValue, UIAlertAction.Style.default))
-        viewController?.actions.append((SortOptions.lowToHigh.rawValue, UIAlertAction.Style.default))
-        viewController?.actions.append(("Cancel", UIAlertAction.Style.cancel))
-    }
-    
+
     func testProductListCollectionViewPresent() {
         XCTAssertNotNil(viewController?.productListCollectionView, "Collection view is present")
     }
-    
+
     func testRefreshUI() {
         XCTAssertNotNil(viewController?.refreshUI())
     }
-    
+
     func testActionSheets() {
-        viewController?.actions.append((SortOptions.HighToLow.rawValue, UIAlertAction.Style.default))
+        viewController?.actions.append((SortOptions.highToLow.rawValue, UIAlertAction.Style.default))
         viewController?.actions.append((SortOptions.lowToHigh.rawValue, UIAlertAction.Style.default))
         viewController?.actions.append(("Cancel", UIAlertAction.Style.cancel))
         guard let viewController = viewController else { return }
         XCTAssertNotNil(ActionSheet.showActionsheet(viewController: viewController.self,
                                                     title: "title", message: "",
-                                                    actions: viewController.actions, completion: { sortOrder in
-            
+                                                    actions: viewController.actions, completion: { _ in
         }))
     }
-    
     func testProductDetailsIfLoaded() {
-        guard let viewController = ProductDetailsViewController.instantiate(appStoryboard: .main) as? ProductDetailsViewController else { return }
+        let viewController = ProductDetailsViewController.instantiate(appStoryboard: .main)
+        guard let viewController = viewController as? ProductDetailsViewController else { return }
         viewController.loadView()
         XCTAssertNotNil(viewController.viewDidLoad())
     }

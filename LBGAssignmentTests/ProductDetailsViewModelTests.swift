@@ -14,23 +14,22 @@ final class ProductDetailsViewModelTests: XCTestCase {
     override func setUpWithError() throws {
         sut = ProductDetailsViewModel(product: MockProduct.getProduct())
     }
-    
+
     override func tearDownWithError() throws {
         sut = nil
     }
-    
+
     func testScreenTitle() throws {
         XCTAssertEqual(sut.screenTitle, "Product Details")
     }
-    
+
     func testFormattedPrice() {
         XCTAssertNotEqual(sut.product.formattedPrice, "$ 23")
         XCTAssertNotEqual(sut.product.formattedPrice, "23")
         XCTAssertEqual(sut.product.formattedPrice, "$23.0")
     }
-    
+
     func testFormattedRating() {
         XCTAssertEqual(sut.product.formattedRating, "Rating 12.0/5")
     }
-    
 }

@@ -344,6 +344,7 @@
 				50066748292A487100363584 /* Frameworks */,
 				50066749292A487100363584 /* Resources */,
 				D6DC8A75C02EBB50D2E847FE /* [CP] Embed Pods Frameworks */,
+				5012A9F3292FD81300EE70BE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -482,6 +483,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LBGAssignment-LBGAssignmentUITests/Pods-LBGAssignment-LBGAssignmentUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5012A9F3292FD81300EE70BE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		7B394F47BDA2444E098380BB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

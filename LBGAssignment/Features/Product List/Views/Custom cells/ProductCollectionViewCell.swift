@@ -15,7 +15,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var productRating: UILabel!
     @IBOutlet weak private var productPrice: UILabel!
     @IBOutlet weak private var productName: UILabel!
-    
+
     var productViewModel: Products? {
         didSet {
             guard let product = productViewModel else {  return }
@@ -26,7 +26,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
             productRating.text = product.formattedRating
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = 1
@@ -34,5 +34,3 @@ class ProductCollectionViewCell: UICollectionViewCell {
         containerView.layer.borderWidth = 0.5
     }
 }
-
-

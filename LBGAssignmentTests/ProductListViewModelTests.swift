@@ -13,13 +13,13 @@ final class ProductListViewModelTests: XCTestCase {
     var sut: ProductListViewModel!
     var products: [Products] = []
     var urlSession: URLSession = URLSession.init(configuration: .default)
-    
+
     override func setUpWithError() throws {
         urlSession = URLSession.init(configuration: MockResponse.getSessionConfiguration())
         sut = ProductListViewModel(urlSession: urlSession)
         products = MockProduct.getProducts()
     }
-    
+
     override func tearDownWithError() throws {
         sut = nil
         products = []
@@ -28,7 +28,7 @@ final class ProductListViewModelTests: XCTestCase {
     func testScreenTitle() throws {
         XCTAssertEqual(sut.screenTitle, "Products")
     }
-    
+
     func testProductListApiSuccess() {
         let mockedData = Utility.readJSONFrom(fileName: "ProductList") as? [[String: Any]] ?? [[:]]
         MockResponse.setMock(response: mockedData,
@@ -46,7 +46,7 @@ final class ProductListViewModelTests: XCTestCase {
         }
         waitForExpectations(timeout: 5, handler: nil)
     }
-    
+
     func testProductListApiFailure() {
         MockResponse.setMock(response: [[:]],
                                      requestUrl: MockResponse.getMockUrl(),
@@ -63,7 +63,7 @@ final class ProductListViewModelTests: XCTestCase {
         }
         waitForExpectations(timeout: 5, handler: nil)
     }
-    
+
     func testProductListApiUnauthorized() {
         MockResponse.setMock(response: [[:]],
                                      requestUrl: MockResponse.getMockUrl(),
@@ -80,22 +80,21 @@ final class ProductListViewModelTests: XCTestCase {
         }
         waitForExpectations(timeout: 5, handler: nil)
     }
-    
+
     func testProductList() {
         sut.productsCopy = sut.products
         XCTAssertNotNil(sut.products)
         sut.isSortingApplied = true
         XCTAssertNotNil(sut.productsCopy)
     }
-    
+
     func testSortBy() {
         XCTAssertNotNil(sut.sortBy(order: .lowToHigh))
-        XCTAssertNotNil(sut.sortBy(order: .HighToLow))
+        XCTAssertNotNil(sut.sortBy(order: .highToLow))
     }
-    
+
     func testServieError() {
         let enumString = ServiceError.decode
         XCTAssertNotNil(enumString.message)
     }
-    
 }

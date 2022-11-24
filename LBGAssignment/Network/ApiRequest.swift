@@ -21,21 +21,21 @@ extension RequestTypes: ApiResource {
     private var baseUrl: String {
         return ServiceUrl.baseURL
     }
-    
+
     var method: HttpMethod {
         switch self {
         case .allProducts:
             return .get
         }
     }
-    
+
     var path: String {
         switch self {
         case .allProducts:
             return baseUrl + "/products"
         }
     }
-    
+
     var request: URLRequest {
         let url = URL(string: path)!
         var request = URLRequest(url: url)

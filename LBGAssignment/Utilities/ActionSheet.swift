@@ -13,7 +13,7 @@ class ActionSheet {
                                 message: String, actions: [(String, UIAlertAction.Style)],
                                 completion: @escaping (_ sortOrder: String) -> Void) {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        for (_ , (title, style)) in actions.enumerated() {
+        for (title, style) in actions {
         let alertAction = UIAlertAction(title: title, style: style) { (_) in
             completion(title)
         }

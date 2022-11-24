@@ -18,7 +18,7 @@ class ProductCollectionViewCellTests: XCTestCase {
     var containerView: UIView!
     var products: [Products] = []
     var product: Products!
-    
+
     override func setUp() {
        super.setUp()
         subject = ProductCollectionViewCell()
@@ -27,7 +27,7 @@ class ProductCollectionViewCellTests: XCTestCase {
         productName = UILabel()
         productImageView = UIImageView()
         containerView = UIView()
-        
+
         subject.setValue(productRating, forKey: "productRating")
         subject.setValue(productPrice, forKey: "productPrice")
         subject.setValue(productName, forKey: "productName")

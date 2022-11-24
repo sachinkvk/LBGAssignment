@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WebService : APIClient {
+class WebService: APIClient {
     static let sharedInstance = WebService()
     private init() { }
 }

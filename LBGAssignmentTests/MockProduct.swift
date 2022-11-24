@@ -13,7 +13,7 @@ class MockProduct {
         return [Products(id: 1, title: "Title", price: 23, description: "description", category: "category",
                          image: "image", rating: Rating(rate: 12, count: 12))]
     }
-    
+
     static func getProduct() -> Products {
         return Products(id: 1, title: "Title", price: 23, description: "description", category: "category",
                         image: "image", rating: Rating(rate: 12, count: 12))

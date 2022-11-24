@@ -8,7 +8,8 @@
 import Foundation
 
 protocol APIClient {
-    func fetch<T: Codable>(with request: URLRequest, decodingType: T.Type, session: URLSession) async -> Result<T, ServiceError>
+    func fetch<T: Codable>(with request: URLRequest, decodingType: T.Type,
+                           session: URLSession) async -> Result<T, ServiceError>
 }
 
 extension APIClient {
@@ -32,8 +33,7 @@ extension APIClient {
             default:
                 return .failure(.unexpectedStatusCode)
             }
-        } catch(let err) {
-            print(err.localizedDescription)
+        } catch {
             return .failure(.unknown)
         }
     }
