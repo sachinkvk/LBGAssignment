@@ -418,7 +418,7 @@
 				};
 			};
 			buildConfigurationList = 50066746292A487100363584 /* Build configuration list for PBXProject "LBGAssignment" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
