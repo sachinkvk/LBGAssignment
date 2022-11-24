@@ -12,7 +12,8 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak private var productTitle: UILabel!
     @IBOutlet weak private var productImageView: UIImageView!
     @IBOutlet weak private var productCategory: UILabel!
-
+    @IBOutlet weak private var productDescription: UILabel!
+    @IBOutlet weak private var productPrice: UILabel!
     var productDetailsViewModel: ProductDetailsViewModel?
 
     override func viewDidLoad() {
@@ -21,6 +22,8 @@ class ProductDetailsViewController: UIViewController {
         productImageView.sd_setImage(with: URL(string: productDetailsViewModel?.product.image ?? ""))
         productTitle.text = productDetailsViewModel?.product.title
         productCategory.text = productDetailsViewModel?.product.category
+        productPrice.text = productDetailsViewModel?.product.formattedPrice
+        productDescription.text = productDetailsViewModel?.product.description
     }
 
 }
