@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProductDetailsViewModel {
+final class ProductDetailsViewModel {
     let product: Product
 
     init(product: Product) {

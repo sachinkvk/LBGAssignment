@@ -9,6 +9,7 @@ import UIKit
 
 class ProductListViewController: UIViewController {
 
+    @IBOutlet weak var sortView: UIView!
     @IBOutlet weak private var retryView: UIView!
     @IBOutlet weak var productListCollectionView: UICollectionView!
 
@@ -21,6 +22,7 @@ class ProductListViewController: UIViewController {
     private var shouldShowCollectionView: Bool = true {
         didSet {
             productListCollectionView.isHidden = !shouldShowCollectionView
+            sortView.isHidden = !shouldShowCollectionView
             if shouldShowCollectionView {
                 DispatchQueue.main.async {
                     self.view.showLoader()

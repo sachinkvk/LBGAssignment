@@ -13,9 +13,9 @@ enum SortOptions: String {
 }
 
 protocol SortProductProtocol {
-    associatedtype SortType
+    associatedtype Order
     associatedtype Items
-    func sortBy(order: SortType) -> [Items]
+    func sortBy(order: Order) -> [Items]
     var isSortingApplied: Bool { get }
 }
 

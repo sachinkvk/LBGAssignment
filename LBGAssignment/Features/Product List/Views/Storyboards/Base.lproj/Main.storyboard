@@ -106,6 +106,7 @@
                     <connections>
                         <outlet property="productListCollectionView" destination="5aS-p5-Pwy" id="2CW-KV-NTv"/>
                         <outlet property="retryView" destination="IUN-NY-pf0" id="h55-mJ-EG7"/>
+                        <outlet property="sortView" destination="fM6-EB-mQW" id="O2f-Iv-Xv3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
