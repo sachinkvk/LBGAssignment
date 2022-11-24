@@ -57,4 +57,12 @@ extension ProductListViewModel {
     var screenTitle: String {
         return "Products"
     }
+
+    var cancelText: String {
+        return "Cancel"
+    }
+
+    var priceText: String {
+        return "Price"
+    }
 }

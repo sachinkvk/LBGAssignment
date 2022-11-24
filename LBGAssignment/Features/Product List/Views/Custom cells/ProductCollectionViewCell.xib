@@ -27,24 +27,24 @@
                                     <constraint firstAttribute="width" secondItem="R7r-O3-9JZ" secondAttribute="height" multiplier="15:8" id="D55-vX-a48"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="OcY-gX-wPR">
-                                <rect key="frame" x="20" y="147.66666666666666" width="262" height="121.33333333333334"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OcY-gX-wPR">
+                                <rect key="frame" x="20" y="142.66666666666666" width="262" height="126.33333333333334"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Fjallraven - Foldsack No. 1 Backpack" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmZ-wF-4nn">
-                                        <rect key="frame" x="0.0" y="0.0" width="262" height="66"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="262" height="75"/>
                                         <accessibility key="accessibilityConfiguration" identifier="ProductNameLabel" label="ProductNameLabel"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <color key="textColor" name="primaryTitleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="109.95" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70N-ba-4vy">
-                                        <rect key="frame" x="0.0" y="78" width="262" height="15.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="109.95" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70N-ba-4vy">
+                                        <rect key="frame" x="0.0" y="85" width="262" height="15.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="secondaryTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="ProductCollectionViewCell" text="3.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUk-Ir-9Ah">
-                                        <rect key="frame" x="0.0" y="105.66666666666666" width="262" height="15.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="110.66666666666666" width="262" height="15.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="secondaryTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                             <constraint firstItem="OcY-gX-wPR" firstAttribute="leading" secondItem="b61-2C-jXY" secondAttribute="leading" constant="20" id="177-uX-00a"/>
                             <constraint firstItem="R7r-O3-9JZ" firstAttribute="leading" secondItem="b61-2C-jXY" secondAttribute="leading" constant="50" id="8sc-Qr-46z"/>
                             <constraint firstItem="R7r-O3-9JZ" firstAttribute="top" secondItem="b61-2C-jXY" secondAttribute="top" constant="20" id="DG0-Z2-IXf"/>
-                            <constraint firstItem="OcY-gX-wPR" firstAttribute="top" secondItem="R7r-O3-9JZ" secondAttribute="bottom" constant="20" id="FVK-qx-UWG"/>
+                            <constraint firstItem="OcY-gX-wPR" firstAttribute="top" secondItem="R7r-O3-9JZ" secondAttribute="bottom" constant="15" id="FVK-qx-UWG"/>
                             <constraint firstAttribute="trailing" secondItem="OcY-gX-wPR" secondAttribute="trailing" constant="20" id="k9Q-VT-m5c"/>
                             <constraint firstAttribute="trailing" secondItem="R7r-O3-9JZ" secondAttribute="trailing" constant="50" id="sdN-R6-kMD"/>
                             <constraint firstAttribute="bottom" secondItem="OcY-gX-wPR" secondAttribute="bottom" constant="10" id="z4Q-ia-n2F"/>

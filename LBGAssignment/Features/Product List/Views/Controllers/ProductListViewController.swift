@@ -54,11 +54,11 @@ class ProductListViewController: UIViewController {
     func loadActionSheets() {
         actions.append((SortOptions.highToLow.rawValue, UIAlertAction.Style.default))
         actions.append((SortOptions.lowToHigh.rawValue, UIAlertAction.Style.default))
-        actions.append(("Cancel", UIAlertAction.Style.cancel))
+        actions.append((viewModel.cancelText, UIAlertAction.Style.cancel))
     }
 
     @IBAction func sortButtonTapped(_ sender: Any) {
-        ActionSheet.showActionsheet(viewController: self, title: "Price",
+        ActionSheet.showActionsheet(viewController: self, title: viewModel.priceText,
                                     message: "", actions: actions) { [weak self] sortOrder in
             self?.handleSheetAction(sortOrder: sortOrder)
         }

@@ -30,6 +30,14 @@ final class ProductListViewModelTests: XCTestCase {
         XCTAssertEqual(sut.screenTitle, "Products")
     }
 
+    func testCancelText() throws {
+        XCTAssertEqual(sut.cancelText, "Cancel")
+    }
+
+    func testPriceText() throws {
+        XCTAssertEqual(sut.priceText, "Price")
+    }
+
     func testProductListApiSuccess() {
         let mockedData = Utility.readJSONFrom(fileName: "ProductList") as? [[String: Any]] ?? [[:]]
         MockResponse.setMock(response: mockedData,
