@@ -10,7 +10,6 @@ import Foundation
 enum SortingTypes: String {
     case lowToHigh = "High To Low"
     case HighToLow = "Low to High"
-    case Cancel = "Cancel"
 }
 
 protocol SortProductProtocol {
@@ -46,8 +45,6 @@ final class ProductListViewModel: SortProductProtocol {
             return productsCopy.sorted(by: { $0.price < $1.price })
         case .lowToHigh:
             return productsCopy.sorted(by: { $0.price > $1.price })
-        default:
-            return []
         }
     }
 }
@@ -77,10 +74,6 @@ extension ProductListViewModel: ProductListProtocol {
 extension ProductListViewModel {
     var screenTitle: String {
         return "Products"
-    }
-    
-    var pullToRefreshText: String {
-        return "Pull to refresh"
     }
     
 }

@@ -30,19 +30,35 @@ final class ViewControllersTests: XCTestCase {
     
     func testActionSheetTaps() {
         XCTAssertNotNil(viewController?.loadActionSheets())
-        XCTAssertNotNil(viewController?.handleSheetAction(type: .HighToLow))
-        XCTAssertNotNil(viewController?.handleSheetAction(type: .lowToHigh))
-        XCTAssertNotNil(viewController?.handleSheetAction(type: .Cancel))
+        XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortingTypes.HighToLow.rawValue))
+        XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortingTypes.lowToHigh.rawValue))
+        XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: "Cancel"))
     }
     
     func testActionSheetSource() {
-        viewController?.actions.append((SortingTypes.HighToLow.rawValue, UIAlertAction.Style.default, .HighToLow))
-        viewController?.actions.append((SortingTypes.lowToHigh.rawValue, UIAlertAction.Style.default, .lowToHigh))
-        viewController?.actions.append((SortingTypes.Cancel.rawValue, UIAlertAction.Style.cancel, .Cancel))
+        viewController?.actions.append((SortingTypes.HighToLow.rawValue, UIAlertAction.Style.default))
+        viewController?.actions.append((SortingTypes.lowToHigh.rawValue, UIAlertAction.Style.default))
+        viewController?.actions.append(("Cancel", UIAlertAction.Style.cancel))
     }
     
     func testProductListCollectionViewPresent() {
         XCTAssertNotNil(viewController?.productListCollectionView, "Collection view is present")
+    }
+    
+    func testRefreshUI() {
+        XCTAssertNotNil(viewController?.refreshUI())
+    }
+    
+    func testActionSheets() {
+        viewController?.actions.append((SortingTypes.HighToLow.rawValue, UIAlertAction.Style.default))
+        viewController?.actions.append((SortingTypes.lowToHigh.rawValue, UIAlertAction.Style.default))
+        viewController?.actions.append(("Cancel", UIAlertAction.Style.cancel))
+        guard let viewController = viewController else { return }
+        XCTAssertNotNil(ActionSheet.showActionsheet(viewController: viewController.self,
+                                                    title: "title", message: "",
+                                                    actions: viewController.actions, completion: { sortOrder in
+            
+        }))
     }
     
     func testProductDetailsIfLoaded() {

@@ -8,14 +8,30 @@
 import UIKit
 
 class ProductListViewController: UIViewController {
-
+    
+    @IBOutlet weak var retryView: UIView!
     @IBOutlet weak var productListCollectionView: UICollectionView!
     var viewModel = ProductListViewModel()
-    let cellIdentifier = AppConstant.CellIdentifiers.productCellIdentifier
+    private let cellIdentifier = AppConstant.CellIdentifiers.productCellIdentifier
     private let productCollectionViewCell = AppConstant.CellIdentifiers.productCollectionViewCell
     private let refreshControl = UIRefreshControl()
-    var actions: [(String, UIAlertAction.Style, SortingTypes)] = []
-
+    var actions: [(String, UIAlertAction.Style)] = []
+    
+    var shouldShowCollectionView: Bool = true {
+        didSet {
+            productListCollectionView.isHidden = !shouldShowCollectionView
+            if shouldShowCollectionView {
+                DispatchQueue.main.async {
+                    self.view.showLoader()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.view.hideLoader()
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         productListCollectionView.register(UINib(nibName: productCollectionViewCell,
@@ -24,11 +40,10 @@ class ProductListViewController: UIViewController {
         productListCollectionView.delegate = self
         loadActionSheets()
         self.title = viewModel.screenTitle
-        refreshControl.attributedTitle = NSAttributedString(string: viewModel.pullToRefreshText)
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         productListCollectionView.addSubview(refreshControl)
+        shouldShowCollectionView = true
         fetchProducts()
-        self.view.showLoader()
     }
     
     @objc func refresh(_ sender: AnyObject) {
@@ -36,30 +51,23 @@ class ProductListViewController: UIViewController {
     }
     
     func loadActionSheets() {
-        actions.append((SortingTypes.HighToLow.rawValue, UIAlertAction.Style.default, .HighToLow))
-        actions.append((SortingTypes.lowToHigh.rawValue, UIAlertAction.Style.default, .lowToHigh))
-        actions.append((SortingTypes.Cancel.rawValue, UIAlertAction.Style.cancel, .Cancel))
+        actions.append((SortingTypes.HighToLow.rawValue, UIAlertAction.Style.default))
+        actions.append((SortingTypes.lowToHigh.rawValue, UIAlertAction.Style.default))
+        actions.append(("Cancel", UIAlertAction.Style.cancel))
     }
     
     @IBAction func sortButtonTapped(_ sender: Any) {
-        ActionSheet.showActionsheet(viewController: self, title: "Price", message: "", actions: actions) { [weak self] type in
-            self?.handleSheetAction(type: type)
+        ActionSheet.showActionsheet(viewController: self, title: "Price", message: "", actions: actions) { [weak self] sortOrder in
+            self?.handleSheetAction(sortOrder: sortOrder)
         }
     }
     
-    func handleSheetAction(type: SortingTypes) {
-        switch type {
-        case .HighToLow:
-            viewModel.isSortingApplied = true
-            viewModel.productsCopy = self.viewModel.sortBy(order: .HighToLow)
-            reloadProducts()
-        case .lowToHigh:
-            viewModel.isSortingApplied = true
-            viewModel.productsCopy = self.viewModel.sortBy(order: .lowToHigh)
-            reloadProducts()
-        default:
-            print("none")
-        }
+    func handleSheetAction(sortOrder: String) {
+        guard let order = SortingTypes(rawValue: sortOrder) else { return }
+        
+        viewModel.isSortingApplied = true
+        viewModel.productsCopy = self.viewModel.sortBy(order: order)
+        reloadProducts()
     }
     
     func reloadProducts() {
@@ -69,20 +77,34 @@ class ProductListViewController: UIViewController {
     }
     
     private func fetchProducts() {
+        if !Reachability.isConnectedToNetwork() {
+            shouldShowCollectionView = false
+            return
+        }
+        
         viewModel.fetchProducts { [weak self] result in
             switch result {
             case .success(let products):
                 self?.viewModel.translateProducts(products)
                 self?.viewModel.productsCopy = self?.viewModel.products ?? []
-                DispatchQueue.main.async {
-                    self?.view.hideLoader()
-                    self?.refreshControl.endRefreshing()
-                    self?.productListCollectionView.reloadData()
-                }
+                self?.refreshUI()
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
+    }
+    
+    func refreshUI() {
+        DispatchQueue.main.async {
+            self.view.hideLoader()
+            self.refreshControl.endRefreshing()
+        }
+        reloadProducts()
+    }
+    
+    @IBAction func retryTapped(_ sender: Any) {
+        shouldShowCollectionView = true
+        fetchProducts()
     }
 }
 

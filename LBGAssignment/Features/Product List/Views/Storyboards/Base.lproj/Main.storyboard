@@ -39,6 +39,34 @@
                                     <constraint firstAttribute="trailing" secondItem="fPU-9W-pno" secondAttribute="trailing" constant="10" id="tdj-wN-Zr8"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUN-NY-pf0">
+                                <rect key="frame" x="105.33333333333333" y="380.66666666666669" width="179.66666666666669" height="83"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsN-JJ-jXx">
+                                        <rect key="frame" x="57.333333333333321" y="38" width="64.666666666666686" height="35"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Retry"/>
+                                        <connections>
+                                            <action selector="retryTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ycD-W5-RkY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Internet Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mj-dn-0AB">
+                                        <rect key="frame" x="10" y="10" width="159.66666666666666" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="0mj-dn-0AB" firstAttribute="leading" secondItem="IUN-NY-pf0" secondAttribute="leading" constant="10" id="GlL-Jz-mzZ"/>
+                                    <constraint firstItem="EsN-JJ-jXx" firstAttribute="top" secondItem="0mj-dn-0AB" secondAttribute="bottom" constant="10" id="JSZ-Yr-qGK"/>
+                                    <constraint firstAttribute="trailing" secondItem="0mj-dn-0AB" secondAttribute="trailing" constant="10" id="ZJC-il-I5C"/>
+                                    <constraint firstAttribute="bottom" secondItem="EsN-JJ-jXx" secondAttribute="bottom" constant="10" id="kag-t9-IrM"/>
+                                    <constraint firstItem="EsN-JJ-jXx" firstAttribute="centerX" secondItem="IUN-NY-pf0" secondAttribute="centerX" id="oql-Ud-wJn"/>
+                                    <constraint firstItem="0mj-dn-0AB" firstAttribute="top" secondItem="IUN-NY-pf0" secondAttribute="top" constant="10" id="wMB-2t-qW1"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5aS-p5-Pwy">
                                 <rect key="frame" x="0.0" y="121" width="390" height="689"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,18 +91,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
+                            <constraint firstItem="IUN-NY-pf0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3U4-NM-v8s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5aS-p5-Pwy" secondAttribute="bottom" id="6aR-cl-vPh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5aS-p5-Pwy" secondAttribute="trailing" id="DEj-1Y-ES5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fM6-EB-mQW" secondAttribute="trailing" id="FU1-1P-yQJ"/>
                             <constraint firstItem="5aS-p5-Pwy" firstAttribute="top" secondItem="fM6-EB-mQW" secondAttribute="bottom" id="Jh8-O9-qMo"/>
                             <constraint firstItem="fM6-EB-mQW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OaY-ED-9Np"/>
                             <constraint firstItem="fM6-EB-mQW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TfC-yq-eNv"/>
+                            <constraint firstItem="IUN-NY-pf0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bvA-0S-Srj"/>
                             <constraint firstItem="5aS-p5-Pwy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nL8-df-0jC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ASo-5U-pDk"/>
                     <connections>
                         <outlet property="productListCollectionView" destination="5aS-p5-Pwy" id="2CW-KV-NTv"/>
+                        <outlet property="retryView" destination="IUN-NY-pf0" id="h55-mJ-EG7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

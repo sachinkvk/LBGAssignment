@@ -29,10 +29,6 @@ final class ProductListViewModelTests: XCTestCase {
         XCTAssertEqual(sut.screenTitle, "Products")
     }
     
-    func testPullToRefreshText() throws {
-        XCTAssertEqual(sut.pullToRefreshText, "Pull to refresh")
-    }
-    
     func fetchProducts(session: URLSession = URLSession(configuration: .default),
                        _ completion: @escaping (Result<[Products], ServiceError>) -> Void) {
         Task {
@@ -93,7 +89,6 @@ final class ProductListViewModelTests: XCTestCase {
     func testSortBy() {
         XCTAssertNotNil(sut.sortBy(order: .lowToHigh))
         XCTAssertNotNil(sut.sortBy(order: .HighToLow))
-        XCTAssertNotNil(sut.sortBy(order: .Cancel))
     }
     
     func testServieError() {

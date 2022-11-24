@@ -8,8 +8,10 @@
 import XCTest
 
 class MockResponse {
+    static let mockURL = "https://fakestoreapi.com/products"
+    
     static func getMockUrl() -> URL? {
-        return URL(string: "https://fakestoreapi.com/products")
+        return URL(string: mockURL)
     }
     
     static func serialiseJsonData(mockedData: [[String: Any]]) -> Data {
