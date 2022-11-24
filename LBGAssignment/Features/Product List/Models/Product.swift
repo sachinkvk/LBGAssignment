@@ -1,6 +1,6 @@
 import Foundation
 
-struct Products: Codable {
+struct Product: Codable {
 	let id: Int
 	let title: String
 	let price: Double
@@ -10,7 +10,7 @@ struct Products: Codable {
 	let rating: Rating
 }
 
-extension Products {
+extension Product {
     var formattedPrice: String {
         return "$" + price.description
     }

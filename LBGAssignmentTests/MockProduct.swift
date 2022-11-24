@@ -9,13 +9,13 @@ import Foundation
 @testable import LBGAssignment
 
 class MockProduct {
-    static func getProducts() -> [Products] {
-        return [Products(id: 1, title: "Title", price: 23, description: "description", category: "category",
+    static func getProducts() -> [Product] {
+        return [Product(id: 1, title: "Title", price: 23, description: "description", category: "category",
                          image: "image", rating: Rating(rate: 12, count: 12))]
     }
 
-    static func getProduct() -> Products {
-        return Products(id: 1, title: "Title", price: 23, description: "description", category: "category",
+    static func getProduct() -> Product {
+        return Product(id: 1, title: "Title", price: 23, description: "description", category: "category",
                         image: "image", rating: Rating(rate: 12, count: 12))
     }
 }

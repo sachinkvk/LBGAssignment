@@ -38,7 +38,7 @@
 		50FB74BC292C91760027AF64 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74BB292C91760027AF64 /* HttpMethod.swift */; };
 		50FB74BE292C92D20027AF64 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74BD292C92D20027AF64 /* ApiRequest.swift */; };
 		50FB74C2292C9E9E0027AF64 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74C1292C9E9E0027AF64 /* ApiClient.swift */; };
-		50FB74C8292CA1150027AF64 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74C6292CA1150027AF64 /* Products.swift */; };
+		50FB74C8292CA1150027AF64 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74C6292CA1150027AF64 /* Product.swift */; };
 		50FB74C9292CA1150027AF64 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74C7292CA1150027AF64 /* Rating.swift */; };
 		AF733FF0CA68A530AE404E45 /* Pods_LBGAssignment_LBGAssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E61885805779F6EA560D5 /* Pods_LBGAssignment_LBGAssignmentUITests.framework */; };
 		DC63FE4254AA829E0818185C /* Pods_LBGAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE569D0AE613D5A9A15662EB /* Pods_LBGAssignment.framework */; };
@@ -100,7 +100,7 @@
 		50FB74BD292C92D20027AF64 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		50FB74BF292C97DD0027AF64 /* MockUrlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlProtocol.swift; sourceTree = "<group>"; };
 		50FB74C1292C9E9E0027AF64 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		50FB74C6292CA1150027AF64 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		50FB74C6292CA1150027AF64 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		50FB74C7292CA1150027AF64 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		6E43FF33E099A2F74771DFD9 /* Pods-LBGAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignmentTests.release.xcconfig"; path = "Target Support Files/Pods-LBGAssignmentTests/Pods-LBGAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		83D81D0F9CC34F2E77BD6660 /* Pods-LBGAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBGAssignment.release.xcconfig"; path = "Target Support Files/Pods-LBGAssignment/Pods-LBGAssignment.release.xcconfig"; sourceTree = "<group>"; };
@@ -303,7 +303,7 @@
 		50FB74C5292CA1030027AF64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				50FB74C6292CA1150027AF64 /* Products.swift */,
+				50FB74C6292CA1150027AF64 /* Product.swift */,
 				50FB74C7292CA1150027AF64 /* Rating.swift */,
 			);
 			path = Models;
@@ -606,7 +606,7 @@
 				50066751292A487100363584 /* SceneDelegate.swift in Sources */,
 				5020707F292CD6720089D14B /* ProductListViewModel.swift in Sources */,
 				50207087292CF00E0089D14B /* ProductDetailsViewModel.swift in Sources */,
-				50FB74C8292CA1150027AF64 /* Products.swift in Sources */,
+				50FB74C8292CA1150027AF64 /* Product.swift in Sources */,
 				50B37409292CC8CD00C9719D /* ProductListViewController.swift in Sources */,
 				50207085292CEED90089D14B /* UIViewContolller+Extension.swift in Sources */,
 				50FB74C2292C9E9E0027AF64 /* ApiClient.swift in Sources */,

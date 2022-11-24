@@ -9,7 +9,7 @@ import XCTest
 @testable import LBGAssignment
 
 final class ViewControllersTests: XCTestCase {
-    var products: [Products] = []
+    var products: [Product] = []
     var viewController: ProductListViewController?
 
     override func setUpWithError() throws {

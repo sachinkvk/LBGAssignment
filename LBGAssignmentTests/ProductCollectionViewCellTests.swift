@@ -16,8 +16,8 @@ class ProductCollectionViewCellTests: XCTestCase {
     var productName: UILabel!
     var productImageView: UIImageView!
     var containerView: UIView!
-    var products: [Products] = []
-    var product: Products!
+    var products: [Product] = []
+    var product: Product!
 
     override func setUp() {
        super.setUp()

@@ -20,20 +20,20 @@ protocol SortProductProtocol {
 }
 
 protocol ProductListProtocol {
-    func fetchProducts(_ completion: @escaping (Result<[Products], ServiceError>) -> Void)
+    func fetchProducts(_ completion: @escaping (Result<[Product], ServiceError>) -> Void)
 }
 
 final class ProductListViewModel: SortProductProtocol {
 
-    var products = [Products]()
-    var productsCopy = [Products]()
+    var products = [Product]()
+    var productsCopy = [Product]()
     var isSortingApplied = false
 
-    var productList: [Products] {
+    var productList: [Product] {
         return isSortingApplied ? productsCopy : products
     }
 
-    func sortBy(order: SortOptions) -> [Products] {
+    func sortBy(order: SortOptions) -> [Product] {
         switch order {
         case .highToLow:
             return productsCopy.sorted(by: { $0.price < $1.price })
@@ -44,10 +44,10 @@ final class ProductListViewModel: SortProductProtocol {
 }
 
 extension ProductListViewModel: ProductListProtocol {
-    func fetchProducts(_ completion: @escaping (Result<[Products], ServiceError>) -> Void) {
+    func fetchProducts(_ completion: @escaping (Result<[Product], ServiceError>) -> Void) {
         Task {
             let result = await WebService.sharedInstance.fetch(with: RequestTypes.allProducts.request,
-                                                               decodingType: [Products].self)
+                                                               decodingType: [Product].self)
             completion(result)
         }
     }

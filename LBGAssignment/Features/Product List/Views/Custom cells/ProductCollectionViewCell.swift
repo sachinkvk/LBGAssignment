@@ -16,7 +16,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var productPrice: UILabel!
     @IBOutlet weak private var productName: UILabel!
 
-    var productViewModel: Products? {
+    var productViewModel: Product? {
         didSet {
             guard let product = productViewModel else {  return }
             guard let url = URL(string: product.image) else { return }

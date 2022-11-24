@@ -11,7 +11,7 @@ import XCTest
 final class ProductListViewModelTests: XCTestCase {
 
     var sut: ProductListViewModel!
-    var products: [Products] = []
+    var products: [Product] = []
     var urlSession: URLSession = URLSession.init(configuration: .default)
 
     override func setUpWithError() throws {
