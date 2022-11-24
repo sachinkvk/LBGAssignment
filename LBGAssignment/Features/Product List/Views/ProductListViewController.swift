@@ -9,9 +9,9 @@ import UIKit
 
 class ProductListViewController: UIViewController {
 
-    @IBOutlet weak private var productListCollectionView: UICollectionView!
+    @IBOutlet weak var productListCollectionView: UICollectionView!
     var viewModel = ProductListViewModel()
-    private let cellIdentifier = AppConstant.CellIdentifiers.cellIdentifier.rawValue
+    let cellIdentifier = AppConstant.CellIdentifiers.cellIdentifier.rawValue
     private let productCollectionViewCell = AppConstant.CellIdentifiers.productCollectionViewCell.rawValue
     private let refreshControl = UIRefreshControl()
     var actions: [(String, UIAlertAction.Style, SortingList)] = []
@@ -35,7 +35,7 @@ class ProductListViewController: UIViewController {
         fetchProducts()
     }
     
-    private func loadActionSheets() {
+    func loadActionSheets() {
         actions.append((SortingList.HighToLow.rawValue, UIAlertAction.Style.default, .HighToLow))
         actions.append((SortingList.lowToHigh.rawValue, UIAlertAction.Style.default, .lowToHigh))
         actions.append((SortingList.Cancel.rawValue, UIAlertAction.Style.cancel, .Cancel))
@@ -43,18 +43,22 @@ class ProductListViewController: UIViewController {
     
     @IBAction func sortButtonTapped(_ sender: Any) {
         ActionSheet.showActionsheet(viewController: self, title: "Price", message: "", actions: actions) { [weak self] type in
-            switch type {
-            case .HighToLow:
-                self?.viewModel.isSortingApplied = true
-                self?.viewModel.productsCopy = self?.viewModel.sortBy(order: .HighToLow) ?? []
-                self?.reloadProducts()
-            case .lowToHigh:
-                self?.viewModel.isSortingApplied = true
-                self?.viewModel.productsCopy = self?.viewModel.sortBy(order: .lowToHigh) ?? []
-                self?.reloadProducts()
-            default:
-                print("none")
-            }
+            self?.handleSheetAction(type: type)
+        }
+    }
+    
+    func handleSheetAction(type: SortingList) {
+        switch type {
+        case .HighToLow:
+            viewModel.isSortingApplied = true
+            viewModel.productsCopy = self.viewModel.sortBy(order: .HighToLow)
+            reloadProducts()
+        case .lowToHigh:
+            viewModel.isSortingApplied = true
+            viewModel.productsCopy = self.viewModel.sortBy(order: .lowToHigh)
+            reloadProducts()
+        default:
+            print("none")
         }
     }
     
@@ -120,20 +124,5 @@ extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     
         let width = (collectionView.frame.width-leftRightPaddings)/numberOfItemsPerRow
         return CGSize(width: width, height: width)
-    }
-}
-
-class ActionSheet {
-    static func showActionsheet(viewController: UIViewController, title: String,
-                                message: String, actions: [(String, UIAlertAction.Style, SortingList)],
-                                completion: @escaping (_ type: SortingList) -> Void) {
-    let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        for (_ , (title, style, type)) in actions.enumerated() {
-        let alertAction = UIAlertAction(title: title, style: style) { (_) in
-            completion(type)
-        }
-        alertViewController.addAction(alertAction)
-     }
-     viewController.present(alertViewController, animated: true, completion: nil)
     }
 }

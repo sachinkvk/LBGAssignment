@@ -11,9 +11,15 @@ import XCTest
 final class ProductListViewModelTests: XCTestCase {
 
     var sut: ProductListViewModel!
+    var products: [Products] = []
+    var urlSession: URLSession = URLSession.init(configuration: .default)
     
     override func setUpWithError() throws {
         sut = ProductListViewModel()
+        
+        urlSession = URLSession.init(configuration: MockResponse.getSessionConfiguration())
+        products = [Products(id: 1, title: "Title", price: 23, description: "description", category: "category",
+                             image: "image", rating: Rating(rate: 12, count: 12))]
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -29,13 +35,23 @@ final class ProductListViewModelTests: XCTestCase {
         XCTAssertEqual(sut.pullToRefreshText, "Pull to refresh")
     }
     
+    func fetchProducts(session: URLSession = URLSession(configuration: .default),
+                       _ completion: @escaping (Result<[Products], ServiceError>) -> Void) {
+        Task {
+            let result = await WebService.sharedInstance.fetch(with: RequestTypes.allProducts.request,
+                                                               decodingType: [Products].self,
+                                                               session: urlSession)
+            completion(result)
+        }
+    }
+    
     func testProductListApiSuccess() {
-//        let mockedData = readJSONFromFile(fileName: "ProductList") as? [String: Any] ?? [:]
-//        DataMocker.setMockedData(mockData: mockedData,
-//                                     requestUrl: DataMocker.getServerUrl(),
-//                                     statusCode: 200)
+        let mockedData = AppConstant.readJSONFromFile(fileName: "ProductList") as? [[String: Any]] ?? [[:]]
+        MockResponse.setMock(response: mockedData,
+                                     requestUrl: MockResponse.getMockUrl(),
+                                     statusCode: 200)
         let expectation = self.expectation(description: "Success")
-        sut.fetchProducts {  result in
+        fetchProducts(session: urlSession) {  result in
                 switch result {
                 case .success(let response):
                     XCTAssertEqual(response.count, 20)
@@ -47,17 +63,39 @@ final class ProductListViewModelTests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func readJSONFromFile(fileName: String) -> Any? {
-        var json: Any?
-        if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
-            do {
-                let fileUrl = URL(fileURLWithPath: path)
-                let data = try Data(contentsOf: fileUrl, options: .mappedIfSafe)
-                json = try? JSONSerialization.jsonObject(with: data)
-            } catch {
-                print("parse error: \(error.localizedDescription)")
-            }
+    func testProductListApiFailure() {
+        MockResponse.setMock(response: [[:]],
+                                     requestUrl: MockResponse.getMockUrl(),
+                                     statusCode: 401)
+        let expectation = self.expectation(description: "Success")
+        fetchProducts(session: urlSession) {  result in
+                switch result {
+                case .success(let response):
+                    XCTAssertEqual(response.count, 20)
+                case .failure(let error):
+                    XCTAssertEqual(error, ServiceError.unexpectedStatusCode)
+                }
+                expectation.fulfill()
         }
-        return json
+        waitForExpectations(timeout: 5, handler: nil)
     }
+    
+    func testTranslateProducts() {
+        XCTAssertNotNil(sut.translateProducts(products))
+    }
+    
+    func testProductList() {
+        sut.translateProducts(products)
+        sut.productsCopy = sut.products
+        XCTAssertNotNil(sut.products)
+        sut.isSortingApplied = true
+        XCTAssertNotNil(sut.productsCopy)
+    }
+    
+    func testSortBy() {
+        XCTAssertNotNil(sut.sortBy(order: .lowToHigh))
+        XCTAssertNotNil(sut.sortBy(order: .HighToLow))
+        XCTAssertNotNil(sut.sortBy(order: .Cancel))
+    }
+    
 }

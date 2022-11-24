@@ -1,5 +1,5 @@
 //
-//  DataMocker.swift
+//  MockResponse.swift
 //  LBGAssignment
 //
 //  Created by Sachin Panigrahi on 22/11/22.
@@ -7,12 +7,12 @@
 
 import XCTest
 
-class DataMocker {
-    static func getServerUrl() -> URL? {
-        return URL(string: "https://fakestoreapi.com")
+class MockResponse {
+    static func getMockUrl() -> URL? {
+        return URL(string: "https://fakestoreapi.com/products")
     }
     
-    static func serialiseJsonData(mockedData: [String: Any]) -> Data {
+    static func serialiseJsonData(mockedData: [[String: Any]]) -> Data {
         var jsonData = Data()
         do {
             jsonData = try JSONSerialization.data(withJSONObject: mockedData, options: .prettyPrinted)
@@ -21,8 +21,8 @@ class DataMocker {
         return jsonData
     }
     
-    static func setMockedData(mockData: [String: Any], requestUrl: URL?, statusCode: Int) {
-        let serialisedData = serialiseJsonData(mockedData: mockData)
+    static func setMock(response: [[String: Any]], requestUrl: URL?, statusCode: Int) {
+        let serialisedData = serialiseJsonData(mockedData: response)
         MockURLProtocol.requestHandler = { request in
             guard let url = request.url, url == requestUrl else {
                 return (HTTPURLResponse(), Data())
