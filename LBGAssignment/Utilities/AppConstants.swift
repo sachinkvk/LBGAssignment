@@ -9,6 +9,7 @@ import Foundation
 
 enum ServiceUrl {
     static let baseURL = "https://fakestoreapi.com"
+    static let mockURL = "https://fakestoreapi.com/products"
 }
 
 struct AppConstant {

@@ -6,12 +6,12 @@
 //
 
 import XCTest
+@testable import LBGAssignment
 
 class MockResponse {
-    static let mockURL = "https://fakestoreapi.com/products"
 
     static func getMockUrl() -> URL? {
-        return URL(string: mockURL)
+        return URL(string: ServiceUrl.mockURL)
     }
 
     static func serialiseJsonData(mockedData: [[String: Any]]) -> Data {
