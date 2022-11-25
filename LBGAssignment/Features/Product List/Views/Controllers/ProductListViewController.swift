@@ -18,7 +18,7 @@ class ProductListViewController: UIViewController {
 
     var viewModel = ProductListViewModel()
 
-    var shouldShowCollectionView: Bool = true {
+    private var shouldShowCollectionView: Bool = true {
         didSet {
             DispatchQueue.main.async {
                 self.productListCollectionView.isHidden = !self.shouldShowCollectionView
