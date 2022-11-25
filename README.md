@@ -1,22 +1,22 @@
 
-#T-STORE
+# T-STORE
 
 T-store is a e-commerce mobile application that allows users to view the different categories of product and on click of individual product , users can view its various details like price, rating and detailed description. For the convenience of Users , I have added a sorting feature as per the price range of products.
 
-#Technical specification:
+# Technical specification:
 
 Project is developed in Xcode 14.0.1 however, it is compatible Xcode 13.0 .
 
 Dependency Manager Used: CocoaPods
 
-#Third party libraries used:
+# Third party libraries used:
 
 SwiftLint
 
 SDWebImage
 
 
-#Code Coverage
+# Code Coverage
 
 <img width="1425" alt="Screenshot 2022-11-25 at 9 18 12 AM" src="https://user-images.githubusercontent.com/23445724/203897601-1ccae15b-b23c-4fb5-8744-b8b06b7d361e.png">
 
