@@ -27,4 +27,8 @@ extension UIView: ActivityDisplayable {
             view.removeFromSuperview()
         }
     }
+
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
 }

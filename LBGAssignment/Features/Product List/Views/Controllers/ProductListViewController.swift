@@ -13,8 +13,7 @@ class ProductListViewController: UIViewController {
     @IBOutlet weak private var retryView: UIView!
     @IBOutlet weak var productListCollectionView: UICollectionView!
 
-    private let cellIdentifier = AppConstant.CellIdentifiers.productCellIdentifier
-    private let productCollectionViewCell = AppConstant.CellIdentifiers.productCollectionViewCell
+    private let cellIdentifier = ProductCollectionViewCell.reuseIdentifier
     var actions: [(String, UIAlertAction.Style)] = []
 
     var viewModel = ProductListViewModel()
@@ -30,7 +29,7 @@ class ProductListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        productListCollectionView.register(UINib(nibName: productCollectionViewCell,
+        productListCollectionView.register(UINib(nibName: cellIdentifier,
                                                  bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         productListCollectionView.dataSource = self
         productListCollectionView.delegate = self

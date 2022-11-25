@@ -12,11 +12,6 @@ enum ServiceUrl {
 }
 
 struct AppConstant {
-    struct CellIdentifiers {
-        static let productCellIdentifier = "productCellIdentifier"
-        static let productCollectionViewCell = "ProductCollectionViewCell"
-    }
-
     enum AppStoryboard: String {
        case main = "Main"
     }
