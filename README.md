@@ -5,7 +5,7 @@ T-store is a e-commerce mobile application that allows users to view the differe
 
 # Technical specification:
 
-Project is developed in Xcode 14.0.1 however, it is compatible Xcode 13.0 .
+Project is developed in Xcode 14.0.1 however, it is compatible with Xcode 13.0
 
 Dependency Manager Used: CocoaPods
 
@@ -18,7 +18,10 @@ SDWebImage
 
 # Code Coverage
 
-<img width="1425" alt="Screenshot 2022-11-25 at 9 18 12 AM" src="https://user-images.githubusercontent.com/23445724/203897601-1ccae15b-b23c-4fb5-8744-b8b06b7d361e.png">
+Project code coverage is around 84%
+
+<img width="1396" alt="Screenshot 2022-11-25 at 9 37 37 AM" src="https://user-images.githubusercontent.com/23445724/203899382-82ea3310-73f9-48fc-aaa0-714c5480b148.png">
+
 
 
 
