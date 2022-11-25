@@ -46,7 +46,7 @@ final class ProductListViewModel: SortProductProtocol {
 extension ProductListViewModel: ProductListProtocol {
     func fetchProducts(_ completion: @escaping (Result<[Product], ServiceError>) -> Void) {
         Task {
-            let result = await WebService.sharedInstance.fetch(with: RequestTypes.allProducts.getRequest(),
+            let result = await WebService().fetch(with: RequestTypes.allProducts.getRequest(),
                                                                decodingType: [Product].self)
             completion(result)
         }
