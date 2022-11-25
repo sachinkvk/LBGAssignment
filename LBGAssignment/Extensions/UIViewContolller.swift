@@ -16,24 +16,3 @@ extension UIViewController {
         return storyboard.instantiateViewController(withIdentifier: identifier) as? T
     }
 }
-
-protocol ActivityDisplayable {
-    func showLoader()
-    func hideLoader()
-}
-
-extension UIView: ActivityDisplayable {
-    func showLoader() {
-        let activityView = UIActivityIndicatorView(style: .large)
-        activityView.center = self.center
-        activityView.tag = 101
-        activityView.startAnimating()
-        self.addSubview(activityView)
-    }
-
-    func hideLoader() {
-        if let view = viewWithTag(101) {
-            view.removeFromSuperview()
-        }
-    }
-}

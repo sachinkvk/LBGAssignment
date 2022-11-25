@@ -98,8 +98,8 @@ final class ProductListViewModelTests: XCTestCase {
     }
 
     func testSortBy() {
-        XCTAssertNotNil(sut.sortBy(order: .lowToHigh))
-        XCTAssertNotNil(sut.sortBy(order: .highToLow))
+        XCTAssertNotNil(sut.sortBy(.lowToHigh))
+        XCTAssertNotNil(sut.sortBy(.highToLow))
     }
 
     func testServieError() {

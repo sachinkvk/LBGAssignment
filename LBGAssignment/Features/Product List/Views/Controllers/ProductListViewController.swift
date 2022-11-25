@@ -9,7 +9,7 @@ import UIKit
 
 class ProductListViewController: UIViewController {
 
-    @IBOutlet weak var sortView: UIView!
+    @IBOutlet weak private var sortView: UIView!
     @IBOutlet weak private var retryView: UIView!
     @IBOutlet weak var productListCollectionView: UICollectionView!
 
@@ -19,18 +19,11 @@ class ProductListViewController: UIViewController {
 
     var viewModel = ProductListViewModel()
 
-    private var shouldShowCollectionView: Bool = true {
+    var shouldShowCollectionView: Bool = true {
         didSet {
-            productListCollectionView.isHidden = !shouldShowCollectionView
-            sortView.isHidden = !shouldShowCollectionView
-            if shouldShowCollectionView {
-                DispatchQueue.main.async {
-                    self.view.showLoader()
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.view.hideLoader()
-                }
+            DispatchQueue.main.async {
+                self.productListCollectionView.isHidden = !self.shouldShowCollectionView
+                self.sortView.isHidden = !self.shouldShowCollectionView
             }
         }
     }
@@ -38,17 +31,13 @@ class ProductListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         productListCollectionView.register(UINib(nibName: productCollectionViewCell,
-                                                 bundle: nil), forCellWithReuseIdentifier: cellIdentifier )
+                                                 bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         productListCollectionView.dataSource = self
         productListCollectionView.delegate = self
         loadActionSheets()
         self.title = viewModel.screenTitle
-        shouldShowCollectionView = true
-        fetchProducts()
-    }
-
-    @objc func refresh(_ sender: AnyObject) {
-        fetchProducts()
+        self.view.showLoader()
+        showViewsBasedOnConnectivity()
     }
 
     func loadActionSheets() {
@@ -68,44 +57,45 @@ class ProductListViewController: UIViewController {
         guard let order = SortOptions(rawValue: sortOrder) else { return }
 
         viewModel.isSortingApplied = true
-        viewModel.productsCopy = self.viewModel.sortBy(order: order)
+        viewModel.productsCopy = self.viewModel.sortBy(order)
         reloadProducts()
     }
 
     func reloadProducts() {
         DispatchQueue.main.async {
+            self.view.hideLoader()
             self.productListCollectionView.reloadData()
         }
     }
 
-    private func fetchProducts() {
-        if !Reachability.isConnectedToNetwork() {
+    func showViewsBasedOnConnectivity() {
+        switch Reachability.isConnectedToNetwork() {
+        case true:
+            fetchProducts()
+        case false:
             shouldShowCollectionView = false
-            return
+            self.view.hideLoader()
         }
+    }
 
+    private func fetchProducts() {
         viewModel.fetchProducts { [weak self] result in
             switch result {
             case .success(let products):
                 self?.viewModel.products = products
                 self?.viewModel.productsCopy = self?.viewModel.products ?? []
-                self?.refreshUI()
+                self?.shouldShowCollectionView = true
+                self?.reloadProducts()
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
     }
 
-    func refreshUI() {
-        DispatchQueue.main.async {
-            self.view.hideLoader()
-        }
-        reloadProducts()
-    }
-
     @IBAction func retryTapped(_ sender: Any) {
         shouldShowCollectionView = true
-        fetchProducts()
+        self.view.showLoader()
+        showViewsBasedOnConnectivity()
     }
 }
 
@@ -120,6 +110,7 @@ extension ProductListViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
         guard let cell = cell as? ProductCollectionViewCell else { return UICollectionViewCell() }
         cell.productViewModel = viewModel.productList[indexPath.row]
@@ -129,11 +120,12 @@ extension ProductListViewController: UICollectionViewDataSource {
 
 extension ProductListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         let viewController = ProductDetailsViewController.instantiate(appStoryboard: .main)
-        guard  let productVc = viewController as? ProductDetailsViewController else { return }
+        guard let productDetailsVC = viewController as? ProductDetailsViewController else { return }
         let product = viewModel.productList[indexPath.row]
-        productVc.productDetailsViewModel = ProductDetailsViewModel(product: product)
-        self.navigationController?.pushViewController(productVc, animated: true)
+        productDetailsVC.productDetailsViewModel = ProductDetailsViewModel(product: product)
+        self.navigationController?.pushViewController(productDetailsVC, animated: true)
     }
 }
 

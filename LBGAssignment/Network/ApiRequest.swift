@@ -10,7 +10,7 @@ import Foundation
 protocol ApiResource {
     var path: String { get }
     var method: HttpMethod { get }
-    var request: URLRequest { get }
+    func getRequest() -> URLRequest?
 }
 
 enum RequestTypes {
@@ -36,8 +36,8 @@ extension RequestTypes: ApiResource {
         }
     }
 
-    var request: URLRequest {
-        let url = URL(string: path)!
+    func getRequest() -> URLRequest? {
+        guard let url = URL(string: path) else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         return request

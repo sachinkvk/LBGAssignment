@@ -15,7 +15,7 @@ enum SortOptions: String {
 protocol SortProductProtocol {
     associatedtype Order
     associatedtype Items
-    func sortBy(order: Order) -> [Items]
+    func sortBy(_ order: Order) -> [Items]
     var isSortingApplied: Bool { get }
 }
 
@@ -33,7 +33,7 @@ final class ProductListViewModel: SortProductProtocol {
         return isSortingApplied ? productsCopy : products
     }
 
-    func sortBy(order: SortOptions) -> [Product] {
+    func sortBy(_ order: SortOptions) -> [Product] {
         switch order {
         case .highToLow:
             return productsCopy.sorted(by: { $0.price < $1.price })
@@ -46,7 +46,7 @@ final class ProductListViewModel: SortProductProtocol {
 extension ProductListViewModel: ProductListProtocol {
     func fetchProducts(_ completion: @escaping (Result<[Product], ServiceError>) -> Void) {
         Task {
-            let result = await WebService.sharedInstance.fetch(with: RequestTypes.allProducts.request,
+            let result = await WebService.sharedInstance.fetch(with: RequestTypes.allProducts.getRequest(),
                                                                decodingType: [Product].self)
             completion(result)
         }

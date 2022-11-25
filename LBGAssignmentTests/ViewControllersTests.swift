@@ -37,10 +37,6 @@ final class ViewControllersTests: XCTestCase {
         XCTAssertNotNil(viewController?.productListCollectionView, "Collection view is present")
     }
 
-    func testRefreshUI() {
-        XCTAssertNotNil(viewController?.refreshUI())
-    }
-
     func testActionSheets() {
         viewController?.actions.append((SortOptions.highToLow.rawValue, UIAlertAction.Style.default))
         viewController?.actions.append((SortOptions.lowToHigh.rawValue, UIAlertAction.Style.default))
@@ -51,11 +47,20 @@ final class ViewControllersTests: XCTestCase {
                                                     actions: viewController.actions, completion: { _ in
         }))
     }
+
+    func testReloadProducts() {
+        XCTAssertNotNil(viewController?.reloadProducts())
+    }
+
+    func testShowViewsBasedOnConnectivity() {
+        XCTAssertNotNil(viewController?.showViewsBasedOnConnectivity())
+    }
+
     func testProductDetailsIfLoaded() {
         let viewController = ProductDetailsViewController.instantiate(appStoryboard: .main)
-        guard let viewController = viewController as? ProductDetailsViewController else { return }
-        viewController.loadView()
-        XCTAssertNotNil(viewController.viewDidLoad())
+        guard let productDetailsVC = viewController as? ProductDetailsViewController else { return }
+        productDetailsVC.loadView()
+        XCTAssertNotNil(productDetailsVC.viewDidLoad())
     }
 
 }
