@@ -31,15 +31,13 @@ class ProductListViewController: UIViewController {
         super.viewDidLoad()
         productListCollectionView.register(UINib(nibName: cellIdentifier,
                                                  bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        productListCollectionView.dataSource = self
-        productListCollectionView.delegate = self
-        loadActionSheets()
+        prepareActionSheetDataSource()
         self.title = viewModel.screenTitle
         self.view.showLoader()
         showViewsBasedOnConnectivity()
     }
 
-    func loadActionSheets() {
+    func prepareActionSheetDataSource() {
         actions.append((SortOptions.highToLow.rawValue, UIAlertAction.Style.default))
         actions.append((SortOptions.lowToHigh.rawValue, UIAlertAction.Style.default))
         actions.append((viewModel.cancelText, UIAlertAction.Style.cancel))

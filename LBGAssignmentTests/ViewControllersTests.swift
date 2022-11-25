@@ -27,7 +27,7 @@ final class ViewControllersTests: XCTestCase {
     }
 
     func testActionSheetTaps() {
-        XCTAssertNotNil(viewController?.loadActionSheets())
+        XCTAssertNotNil(viewController?.prepareActionSheetDataSource())
         XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortOptions.highToLow.rawValue))
         XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: SortOptions.lowToHigh.rawValue))
         XCTAssertNotNil(viewController?.handleSheetAction(sortOrder: "Cancel"))
