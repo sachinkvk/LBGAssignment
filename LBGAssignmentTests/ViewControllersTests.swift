@@ -56,6 +56,12 @@ final class ViewControllersTests: XCTestCase {
         XCTAssertNotNil(viewController?.showViewsBasedOnConnectivity())
     }
 
+    func testRetryButtonTapped() {
+        if let viewController = viewController {
+            XCTAssertNotNil(viewController.retryTapped(viewController.self))
+        }
+    }
+
     func testProductDetailsIfLoaded() {
         let viewController = ProductDetailsViewController.instantiate(appStoryboard: .main)
         guard let productDetailsVC = viewController as? ProductDetailsViewController else { return }
