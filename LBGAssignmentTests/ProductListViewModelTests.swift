@@ -42,7 +42,7 @@ final class ProductListViewModelTests: XCTestCase {
         let mockedData = Utility.readJSONFrom(fileName: "ProductList") as? [[String: Any]] ?? [[:]]
         MockResponse.setMock(response: mockedData,
                                      requestUrl: MockResponse.getMockUrl(),
-                                     statusCode: 200)
+                             statusCode: HTTPStatusCode.success.rawValue)
         let expectation = self.expectation(description: "Success")
         sut.fetchProducts {  result in
                 switch result {
@@ -59,7 +59,7 @@ final class ProductListViewModelTests: XCTestCase {
     func testProductListApiFailure() {
         MockResponse.setMock(response: [[:]],
                                      requestUrl: MockResponse.getMockUrl(),
-                                     statusCode: 400)
+                                     statusCode: HTTPStatusCode.badStatusCode.rawValue)
         let expectation = self.expectation(description: "Failure")
         sut.fetchProducts {  result in
                 switch result {
@@ -76,7 +76,7 @@ final class ProductListViewModelTests: XCTestCase {
     func testProductListApiUnauthorized() {
         MockResponse.setMock(response: [[:]],
                                      requestUrl: MockResponse.getMockUrl(),
-                                     statusCode: 401)
+                                     statusCode: HTTPStatusCode.unAuthorized.rawValue)
         let expectation = self.expectation(description: "Failure")
         sut.fetchProducts {  result in
                 switch result {

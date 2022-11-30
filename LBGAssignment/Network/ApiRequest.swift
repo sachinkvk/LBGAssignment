@@ -32,7 +32,7 @@ extension RequestTypes: ApiResource {
     var path: String {
         switch self {
         case .allProducts:
-            return baseUrl + "/products"
+            return baseUrl + ServiceUrl.EndPoints.allProducts
         }
     }
 

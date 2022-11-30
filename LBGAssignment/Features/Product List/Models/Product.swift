@@ -12,10 +12,10 @@ struct Product: Codable {
 
 extension Product {
     var formattedPrice: String {
-        return "$" + price.description
+        return AppConstant.Strings.dollarSymbol + price.description
     }
 
     var formattedRating: String {
-        return "Rating " + rating.rate.description + "/" + "5"
+        return AppConstant.Strings.rating + rating.rate.description + "/" + AppConstant.Strings.maxRating
     }
 }

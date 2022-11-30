@@ -16,9 +16,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var productPrice: UILabel!
     @IBOutlet weak private var productName: UILabel!
 
-    var productViewModel: Product? {
+    var product: Product? {
         didSet {
-            guard let product = productViewModel else {  return }
+            guard let product = product else {  return }
             guard let url = URL(string: product.image) else { return }
             productImageView.sd_setImage(with: url)
             productName.text = product.title
@@ -29,8 +29,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.layer.cornerRadius = 1
-        containerView.layer.borderColor = UIColor.brown.cgColor
-        containerView.layer.borderWidth = 0.5
+        containerView.layer.cornerRadius = AppConstant.CellProperties.cornerRadius
+        containerView.layer.borderColor = AppConstant.CellProperties.borderColor
+        containerView.layer.borderWidth = AppConstant.CellProperties.borderWidth
     }
 }

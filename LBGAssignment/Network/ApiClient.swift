@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum HTTPStatusCode: Int {
+    case success = 200
+    case badStatusCode = 400
+    case unAuthorized = 401
+}
+
 protocol APIClient {
     func fetch<T: Codable>(with request: URLRequest?, decodingType: T.Type) async -> Result<T, ServiceError>
 }
@@ -23,14 +29,14 @@ extension APIClient {
                 return .failure(.noResponse)
             }
             switch response.statusCode {
-            case 200:
+            case HTTPStatusCode.success.rawValue:
                 guard let decodedResponse = try? JSONDecoder().decode(decodingType.self, from: data) else {
                     return .failure(.decode)
                 }
                 return .success(decodedResponse)
-            case 400:
+            case HTTPStatusCode.badStatusCode.rawValue:
                 return .failure(.badStatusCode)
-            case 401:
+            case HTTPStatusCode.unAuthorized.rawValue:
                 return .failure(.unauthorized)
             default:
                 return .failure(.unexpectedStatusCode)

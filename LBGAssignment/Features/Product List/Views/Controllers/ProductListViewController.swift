@@ -113,7 +113,7 @@ extension ProductListViewController: UICollectionViewDataSource {
                                                             for: indexPath) as? ProductCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.productViewModel = viewModel.productList[indexPath.row]
+        cell.product = viewModel.productList[indexPath.row]
         return cell
     }
 }
@@ -129,15 +129,18 @@ extension ProductListViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5)
+        return UIEdgeInsets(top: AppConstant.CellPadding.top,
+                            left: AppConstant.CellPadding.left,
+                            bottom: AppConstant.CellPadding.bottom,
+                            right: AppConstant.CellPadding.right)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let leftRightPaddings: CGFloat = 10
-        let numberOfItemsPerRow: CGFloat = 2.0
+        let leftRightPaddings = AppConstant.CellProperties.leftRightPaddings
+        let numberOfItemsPerRow = AppConstant.CellProperties.noOfItemsInRow
 
-        let width = (collectionView.frame.width-leftRightPaddings)/numberOfItemsPerRow
+        let width = (collectionView.frame.width - leftRightPaddings) / numberOfItemsPerRow
         return CGSize(width: width, height: width)
     }
 }

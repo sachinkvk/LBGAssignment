@@ -34,7 +34,7 @@ class ProductCollectionViewCellTests: XCTestCase {
         subject.setValue(productImageView, forKey: "productImageView")
         subject.setValue(containerView, forKey: "containerView")
         product = MockProduct.getProduct()
-        subject.productViewModel = product
+        subject.product = product
     }
 
     override func tearDown() {
