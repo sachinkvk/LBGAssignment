@@ -15,6 +15,7 @@ class ProductListViewController: UIViewController {
 
     private let cellIdentifier = ProductCollectionViewCell.reuseIdentifier
     var actions: [(String, UIAlertAction.Style)] = []
+    weak var coordinator: MainCoordinator?
 
     var viewModel = ProductListViewModel()
 
@@ -108,8 +109,10 @@ extension ProductListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
-        guard let cell = cell as? ProductCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
+                                                            for: indexPath) as? ProductCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         cell.productViewModel = viewModel.productList[indexPath.row]
         return cell
     }
@@ -117,12 +120,8 @@ extension ProductListViewController: UICollectionViewDataSource {
 
 extension ProductListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        let viewController = ProductDetailsViewController.instantiate(appStoryboard: .main)
-        guard let productDetailsVC = viewController as? ProductDetailsViewController else { return }
         let product = viewModel.productList[indexPath.row]
-        productDetailsVC.productDetailsViewModel = ProductDetailsViewModel(product: product)
-        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+        coordinator?.productDetails(product)
     }
 }
 

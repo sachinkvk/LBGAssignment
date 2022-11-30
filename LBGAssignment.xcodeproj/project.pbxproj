@@ -28,6 +28,8 @@
 		50C9EDAC292E5E4A0022BF20 /* MockUrlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB74BF292C97DD0027AF64 /* MockUrlProtocol.swift */; };
 		50C9EDAE292F3A8F0022BF20 /* ProductCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C9EDAD292F3A8F0022BF20 /* ProductCollectionViewCellTests.swift */; };
 		50C9EDB0292F44060022BF20 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C9EDAF292F44060022BF20 /* ActionSheet.swift */; };
+		50CFCA7C2937680500DB3163 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CFCA7B2937680500DB3163 /* Coordinator.swift */; };
+		50CFCA7E2937682400DB3163 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CFCA7D2937682400DB3163 /* MainCoordinator.swift */; };
 		50D96FA5292FAEE00002ED0C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D96FA4292FAEE00002ED0C /* Reachability.swift */; };
 		50D96FA7292FD4880002ED0C /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D96FA6292FD4880002ED0C /* Utility.swift */; };
 		50E777DB292DDC8A002C7F2A /* ProductListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E777DA292DDC8A002C7F2A /* ProductListViewModelTests.swift */; };
@@ -90,6 +92,8 @@
 		50B3740F292CCA5000C9719D /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		50C9EDAD292F3A8F0022BF20 /* ProductCollectionViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCellTests.swift; sourceTree = "<group>"; };
 		50C9EDAF292F44060022BF20 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
+		50CFCA7B2937680500DB3163 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		50CFCA7D2937682400DB3163 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		50D96FA4292FAEE00002ED0C /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		50D96FA6292FD4880002ED0C /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		50E777DA292DDC8A002C7F2A /* ProductListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelTests.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				50C9EDA8292E438D0022BF20 /* Extensions */,
 				50C9EDA5292E43410022BF20 /* Utilities */,
 				50FB74BA292C91610027AF64 /* Network */,
+				50CFCA7A2937675700DB3163 /* Coordinator */,
 				50C9EDA6292E435D0022BF20 /* Features */,
 				50066757292A487300363584 /* Assets.xcassets */,
 				50E777DC292DE0BB002C7F2A /* Mock Data */,
@@ -255,6 +260,15 @@
 				505509A2293065C300862F99 /* UIViews.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		50CFCA7A2937675700DB3163 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				50CFCA7B2937680500DB3163 /* Coordinator.swift */,
+				50CFCA7D2937682400DB3163 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		50D96FA1292FA3280002ED0C /* Storyboards */ = {
@@ -599,6 +613,7 @@
 				50B37405292CC7EC00C9719D /* ServiceError.swift in Sources */,
 				50B37403292CC7AB00C9719D /* WebService.swift in Sources */,
 				50FB74BE292C92D20027AF64 /* ApiRequest.swift in Sources */,
+				50CFCA7E2937682400DB3163 /* MainCoordinator.swift in Sources */,
 				50207083292CE8CB0089D14B /* ProductDetailsViewController.swift in Sources */,
 				50D96FA7292FD4880002ED0C /* Utility.swift in Sources */,
 				50FB74BC292C91760027AF64 /* HttpMethod.swift in Sources */,
@@ -614,6 +629,7 @@
 				50B37409292CC8CD00C9719D /* ProductListViewController.swift in Sources */,
 				50207085292CEED90089D14B /* UIViewContolller.swift in Sources */,
 				50FB74C2292C9E9E0027AF64 /* ApiClient.swift in Sources */,
+				50CFCA7C2937680500DB3163 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
