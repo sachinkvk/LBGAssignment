@@ -33,6 +33,7 @@ final class ProductListViewModel: SortProductProtocol {
         return isSortingApplied ? productsCopy : products
     }
 
+    /* sort products based on sort order option selectecd by user */
     func sortBy(_ order: SortOptions) -> [Product] {
         switch order {
         case .highToLow:
@@ -44,6 +45,8 @@ final class ProductListViewModel: SortProductProtocol {
 }
 
 extension ProductListViewModel: ProductListProtocol {
+
+    /* fetch products from api */
     func fetchProducts(_ completion: @escaping (Result<[Product], ServiceError>) -> Void) {
         Task {
             let result = await WebService().fetch(with: RequestTypes.allProducts.getRequest(),

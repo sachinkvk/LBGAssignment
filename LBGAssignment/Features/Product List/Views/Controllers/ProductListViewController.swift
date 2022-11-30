@@ -51,6 +51,7 @@ class ProductListViewController: UIViewController {
         }
     }
 
+    /* sort products and refresh UI */
     func handleSheetAction(sortOrder: String) {
         guard let order = SortOptions(rawValue: sortOrder) else { return }
 
@@ -66,6 +67,7 @@ class ProductListViewController: UIViewController {
         }
     }
 
+    /* check internet connection and accordingly show respective views */
     func showViewsBasedOnConnectivity() {
         switch Reachability.isConnectedToNetwork() {
         case true:
@@ -97,6 +99,8 @@ class ProductListViewController: UIViewController {
     }
 }
 
+// MARK: Collection view data source
+
 extension ProductListViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -118,12 +122,16 @@ extension ProductListViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: Collection view delegates
+
 extension ProductListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = viewModel.productList[indexPath.row]
         coordinator?.productDetails(product)
     }
 }
+
+// MARK: Collection view flow layout delegates
 
 extension ProductListViewController: UICollectionViewDelegateFlowLayout {
 

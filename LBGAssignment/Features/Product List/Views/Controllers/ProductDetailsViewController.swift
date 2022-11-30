@@ -19,6 +19,10 @@ class ProductDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = productDetailsViewModel?.screenTitle
+        setProductDetails()
+    }
+
+    private func setProductDetails() {
         productImageView.sd_setImage(with: URL(string: productDetailsViewModel?.product.image ?? ""))
         productTitle.text = productDetailsViewModel?.product.title
         productCategory.text = productDetailsViewModel?.product.category
