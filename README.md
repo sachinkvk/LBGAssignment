@@ -20,8 +20,7 @@ SDWebImage
 
 Project code coverage is around 84%
 
-<img width="1396" alt="Screenshot 2022-11-25 at 9 37 37 AM" src="https://user-images.githubusercontent.com/23445724/203899382-82ea3310-73f9-48fc-aaa0-714c5480b148.png">
-
+<img width="1393" alt="Screenshot 2022-12-01 at 7 27 27 AM" src="https://user-images.githubusercontent.com/23445724/204948938-4e56a441-130b-4a86-8642-3b623f6eed58.png">
 
 
 
