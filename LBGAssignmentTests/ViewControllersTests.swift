@@ -20,6 +20,7 @@ final class ViewControllersTests: XCTestCase {
 
     override func tearDownWithError() throws {
         viewController = nil
+        products = []
     }
 
     func testProductListViewControllerIfLoaded() {

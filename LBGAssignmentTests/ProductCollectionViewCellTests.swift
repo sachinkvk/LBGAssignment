@@ -43,6 +43,9 @@ class ProductCollectionViewCellTests: XCTestCase {
         productPrice = nil
         productImageView = nil
         subject = nil
+        containerView = nil
+        product = nil
+        products = []
         super.tearDown()
     }
 
